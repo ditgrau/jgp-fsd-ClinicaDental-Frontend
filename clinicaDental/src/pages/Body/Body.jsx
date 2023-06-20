@@ -6,11 +6,12 @@ import { Signin } from '../Signin/Signin'
 import { Dentists } from '../Dentists/Dentists'
 import { Specialties } from '../Specialties/Specialties'
 import { Treatments } from '../Treatments/Treatments'
+import './Body.css'
 
 export function Body() {
 
     return (
-        <Routes>
+        <Routes className='bodyRoutes'>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signin' element={<Signin />} />

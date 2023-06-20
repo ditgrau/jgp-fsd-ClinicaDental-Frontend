@@ -9,7 +9,7 @@ import './SecondNavbar.css'
 export function SecondNavbar() {
 
     return (
-        <Navbar>
+        <Navbar className="secondNavbar">
             <Container className=''>
                 <Link to='/dentists' className='iconSecond'>
                     <img src={dentistsIcon} alt='dentists' ></img>

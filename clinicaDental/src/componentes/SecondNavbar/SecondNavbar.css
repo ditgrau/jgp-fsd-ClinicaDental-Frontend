@@ -1,3 +1,7 @@
+.secondNavbar {
+    width: 100vw;
+}
+
 .iconSecond {
     display: flex;
     flex-direction: column;
