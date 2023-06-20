@@ -11,4 +11,6 @@
 
 .nav-icons {
     margin-right: 1rem;
+    display: flex;
+    flex-direction: row;
 }

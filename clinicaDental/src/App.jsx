@@ -1,23 +1,18 @@
 import { Container } from 'react-bootstrap'
-import { Header } from  './componentes/Header/Header'
-import { Route , Routes } from 'react-router-dom'
-import { Home } from './pages/Home/Home'
-import { Login } from './pages/Login/Login'
-import { Signin } from './pages/Signin/Signin'
+import { Header } from './componentes/Header/Header'
+import { SecondNavbar } from './componentes/SecondNavbar/SecondNavbar'
+import { Body } from './pages/Body/Body'
 import './App.css'
 
 function App() {
-  
+
   return (
     <>
-    
-      <Header/>
+
+      <Header />
+      <SecondNavbar />
       <Container>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/signin' element={<Signin/>}/>
-      </Routes>
+        <Body />
       </Container>
     </>
   )

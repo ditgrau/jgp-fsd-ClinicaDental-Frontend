@@ -1,0 +1,10 @@
+.iconSecond {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: .8rem;
+    color: #001c40;
+    margin: .3rem
+}
