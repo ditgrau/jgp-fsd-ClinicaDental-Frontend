@@ -18,9 +18,18 @@ export function Login() {
         <>
             <h1>LOGIN</h1>
             <form onSubmit={handleSubmit}>
-                <input type='email' placeholder='user@email.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
-
-                <input type='password' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                <input
+                    type='email'
+                    placeholder='user@email.com'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}>
+                </input>
+                <input
+                    type='password'
+                    placeholder='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}>
+                </input>
                 <button>Login</button>
             </form>
 
