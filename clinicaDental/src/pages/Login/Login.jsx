@@ -1,12 +1,12 @@
 import React from 'react';
 import jwt_decode from 'jwt-decode';
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { login } from '../../services/apiCalls/login';
-
+import { useNavigate , Link } from "react-router-dom";
+import { login } from '../../services/apiCalls';
+import { checkError } from '../../services/checkError';
 
 export function Login() {
-    
+
     //hooks de estado 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -20,11 +20,44 @@ export function Login() {
 
     const navigate = useNavigate();
 
-    //evita el comportamiento por default del formulario (enviar y recagar la pagina), para hacer antes las validaciones 
+    const inputHandler = (e) => {
+        setCredentials((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+    const inputCheck = (e) => {
+        let mensajeError = checkError(e.target.name, e.target.value);
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: mensajeError,
+        }));
+    };
+
+    const logUser = () => {
+        login(credentials)
+            .then((result) => {
+                let tokenDecoded = jwt_decode(result.data.token);
+                console.log(result.data.token)
+                console.log(tokenDecoded);
+
+                setTimeout(() => {
+                    navigate("/");
+                }, 1500);
+
+                setWelcome(`Bienvenido de nuevo, ${tokenDecoded.name}`);
+            })
+            .catch((error) => console.log(error));
+    };
+
+    // evita el comportamiento por default del formulario (enviar y recagar la pagina), para hacer antes las validaciones 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate("/");
+        if (credentials.email && credentials.password) {
+            logUser();
     }
+}
 
     return (
         <>
@@ -32,19 +65,27 @@ export function Login() {
             <form onSubmit={handleSubmit}>
                 <input
                     type='email'
+                    className=''
                     placeholder='user@email.com'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}>
+                    name= {'email'}
+                    value={credentials.email}
+                    onChange={(e) => inputHandler(e)}
+                    onBlur={(e) => inputCheck(e)}>
                 </input>
+                <div className="errorText">{credentialsError.emailError}</div>
                 <input
                     type='password'
                     placeholder='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}>
+                    name= {'password'}
+                    value={credentials.password}
+                    onChange={(e) => inputHandler(e)}
+                    onBlur={(e) => inputCheck(e)}>
                 </input>
-                <button>Login</button>
-            </form>
+                <div className="errorText">{credentialsError.passwordError}</div>
+                <button type='submit'>Login</button>
+                <span>¿No tienes cuenta aún?</span><Link to='/signin'><span>Regístrate</span></Link>
 
+            </form>
         </>
     )
 }
