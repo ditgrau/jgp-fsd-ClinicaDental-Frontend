@@ -1,11 +1,23 @@
 import React from 'react';
+import jwt_decode from 'jwt-decode';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { login } from '../../services/apiCalls/login';
 
 
 export function Login() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    
+    //hooks de estado 
+    const [credentials, setCredentials] = useState({
+        email: "",
+        password: "",
+    });
+    const [credentialsError, setCredentialsError] = useState({
+        emailError: "",
+        passwordError: "",
+    });
+    const [welcome, setWelcome] = useState('')
+
     const navigate = useNavigate();
 
     //evita el comportamiento por default del formulario (enviar y recagar la pagina), para hacer antes las validaciones 
