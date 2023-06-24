@@ -1,6 +1,8 @@
 .secondNavbar {
     width: 100vw;
+    background-color: #001c40;
 }
+
 
 .iconSecond {
     display: flex;
@@ -9,6 +11,6 @@
     justify-content: center;
     text-decoration: none;
     font-size: .8rem;
-    color: #001c40;
+    color: #ffffff;
     margin: .3rem
 }

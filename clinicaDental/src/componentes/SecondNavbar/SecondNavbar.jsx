@@ -10,7 +10,7 @@ export function SecondNavbar() {
 
     return (
         <Navbar className="secondNavbar">
-            <Container className=''>
+            <Container>
                 <Link to='/dentists' className='iconSecond'>
                     <img src={dentistsIcon} alt='dentists' ></img>
                     <span>Dentistas</span>

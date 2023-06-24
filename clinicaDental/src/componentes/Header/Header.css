@@ -1,20 +1,23 @@
-.logoNavbar {
-    margin: .3rem;
-    margin-left: 1rem;
-    width: 2rem;
-    height: 2rem;
+.navbarMain {
+    width: 100vw;
+    box-shadow: 0 0 .5rem rgba(0,0,0,.1);
+    border: solid 1px rgb(232, 232, 232);
 }
 
 .iconNavbar {
-    margin: .4rem;
+    padding: .4rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 .5rem rgba(0,0,0,.1);
+    border: solid 1px rgb(232, 232, 232);
 }
 
 .nav-icons {
-    margin-right: 1rem;
+    margin-right: 2rem;
+    gap: .8rem;
     display: flex;
     flex-direction: row;
 }
 
-.navbarMain {
-    width: 100vw;
-  }

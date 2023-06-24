@@ -1,8 +1,9 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Logo } from '../Logo/Logo';
 
-import dentalLogo from '../../assets/dental.svg'
+// import dentalLogo from '../../assets/dental.svg'
 import loginIcon from '../../assets/door-enter.svg'
 import signinIcon from '../../assets/user-plus.svg'
 import logoutIcon from '../../assets/door-exit.svg'
@@ -17,10 +18,7 @@ export function Header() {
 
     return (
         <Navbar className='navbarMain' style={{ justifyContent: 'space-between' }}>
-            <Link to='/'>
-                <img src={dentalLogo} alt='logo' className='logoNavbar'></img>
-            </Link>
-
+            <Logo />
             {
                 isLogged
                     ? <nav className='nav-icons'>
