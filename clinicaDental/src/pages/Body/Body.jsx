@@ -6,6 +6,7 @@ import { Signin } from '../Signin/Signin'
 import { Dentists } from '../Dentists/Dentists'
 import { Specialties } from '../Specialties/Specialties'
 import { Treatments } from '../Treatments/Treatments'
+import { Profile } from '../Profile/Profile'
 import './Body.css'
 
 export function Body() {
@@ -19,6 +20,7 @@ export function Body() {
             <Route path='/dentists' element={<Dentists />} />
             <Route path='/specialties' element={<Specialties />} />
             <Route path='/treatments' element={<Treatments />} />
+            <Route path='/profile' element={<Profile />} />
         </Routes>
     )
 }
