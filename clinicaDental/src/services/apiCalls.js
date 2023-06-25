@@ -1,2 +1,7 @@
 import axios from 'axios';
-0
+
+const ENDPOINT = 'http://localhost:3000';
+
+export const login = async (credentials) => {
+    return await axios.post(`${ENDPOINT}/login`, credentials)
+}
