@@ -1,0 +1,18 @@
+.signup-form {
+    display: inline-flex;
+    flex-direction: column;
+    gap: .2rem;
+    margin-top: 3.5rem;
+    align-items: center;
+}
+
+.errorShown {
+    display:block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color:rgb(218, 42, 42)
+}
+
+.errorNone {
+    display: none;
+}

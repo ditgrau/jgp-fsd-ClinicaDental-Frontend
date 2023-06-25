@@ -45,7 +45,7 @@ export function Login() {
 
                 setTimeout(() => {
                     navigate("/");
-                }, 1000);
+                }, 2000);
 
             })
             .catch(error => {
@@ -54,7 +54,7 @@ export function Login() {
             })
     };
 
-    // evita el comportamiento por default del formulario (enviar y recagar la pagina), para hacer antes las validaciones 
+    // evita el comportamiento por default del formulario (enviar y recagar la pagina)
     const handleSubmit = (e) => {
         e.preventDefault()
         if (credentials.email && credentials.password) {
@@ -87,8 +87,7 @@ export function Login() {
                 <div className="errorText">{credentialsError.passwordError}</div>
                 <button type='submit'>Iniciar sesión</button>
                 <div>¿No tienes cuenta aún?</div>
-                <Link to='/signin'><span className='link-text'> Regístrate aquí</span></Link>
-
+                <Link to='/signup'><span className='link-text'> Regístrate aquí</span></Link>
                 <div className="errorText">{badRequest}</div>
 
             </form>

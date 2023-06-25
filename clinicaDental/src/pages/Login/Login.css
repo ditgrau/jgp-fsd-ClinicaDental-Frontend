@@ -28,6 +28,12 @@ button {
     background-color: #0c2950;
     color: white;
     margin: 2rem !important;
+    transition: .5s ease box-shadow;
+}
+
+button:hover {
+    box-shadow: .3rem .3rem .4rem rgba(122, 152, 180, 0.6);
+    transition: .3s ease box-shadow;
 }
 
 .login-form {
@@ -37,6 +43,5 @@ button {
 .link-text {
     font-size: 0.8rem;
     font-weight: 600;
-    text-decoration: none;
     color:rgb(64, 100, 172)
 }
