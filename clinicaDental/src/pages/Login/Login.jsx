@@ -1,9 +1,10 @@
 import React from 'react';
 import jwt_decode from 'jwt-decode';
 import { useState } from 'react';
-import { useNavigate , Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { login } from '../../services/apiCalls';
 import { checkError } from '../../services/checkError';
+import '../Login/Login.css'
 
 export function Login() {
 
@@ -16,7 +17,6 @@ export function Login() {
         emailError: "",
         passwordError: "",
     });
-    const [welcome, setWelcome] = useState('')
     const [badRequest, setBadRequest] = useState('');
 
     const navigate = useNavigate();
@@ -47,7 +47,6 @@ export function Login() {
                     navigate("/");
                 }, 1000);
 
-                // setWelcome(`Bienvenido de nuevo, ${tokenDecoded.name}`);
             })
             .catch(error => {
                 console.log(error.response.status);
@@ -60,18 +59,17 @@ export function Login() {
         e.preventDefault()
         if (credentials.email && credentials.password) {
             logUser();
+        }
     }
-}
 
     return (
         <>
-            <h1>LOGIN</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='login-form'>
                 <input
                     type='email'
-                    className=''
+                    className='login-input'
                     placeholder='user@email.com'
-                    name= {'email'}
+                    name={'email'}
                     value={credentials.email}
                     onChange={(e) => inputHandler(e)}
                     onBlur={(e) => inputCheck(e)}>
@@ -79,16 +77,19 @@ export function Login() {
                 <div className="errorText">{credentialsError.emailError}</div>
                 <input
                     type='password'
+                    className='login-input'
                     placeholder='password'
-                    name= {'password'}
+                    name={'password'}
                     value={credentials.password}
                     onChange={(e) => inputHandler(e)}
                     onBlur={(e) => inputCheck(e)}>
                 </input>
                 <div className="errorText">{credentialsError.passwordError}</div>
-                <button type='submit'>Login</button>
-                <span>¿No tienes cuenta aún?</span><Link to='/signin'><span>Regístrate</span></Link>
-                <div>{badRequest}</div>
+                <button type='submit'>Iniciar sesión</button>
+                <div>¿No tienes cuenta aún?</div>
+                <Link to='/signin'><span className='link-text'> Regístrate aquí</span></Link>
+
+                <div className="errorText">{badRequest}</div>
 
             </form>
         </>

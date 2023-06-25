@@ -12,7 +12,7 @@ export const checkError = (name, value) => {
         
         case 'password':
             if(!/^(?=.*\d)(?=.*[!@#$%^&*()-_+=])(?=.*[a-zA-Z]).{6,}$/.test(value)){
-                return "La password debe cumplir los parámetros: mín. un dígito, un caracter especial, una mayúscula y 6 al menos 6 carácteres"
+                return "La password no cumple los parámetros"
             }
 
         break;
