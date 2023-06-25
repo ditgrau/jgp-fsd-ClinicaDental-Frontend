@@ -12,16 +12,16 @@ export function SecondNavbar() {
         <Navbar className="secondNavbar">
             <Container>
                 <Link to='/dentists' className='iconSecond'>
-                    <img src={dentistsIcon} alt='dentists' ></img>
-                    <span>Dentistas</span>
+                    <img src={dentistsIcon} alt='dentists' className='sn-iconImg'></img>
+                    <span className='sn-iconText'>Dentistas</span>
                 </Link>
-                <Link to='/specialties'  className='iconSecond'>
-                    <img src={specialtiesIcon} alt='specialties'></img>
-                    <span>Especialidades</span>
+                <Link to='/specialties' className='iconSecond'>
+                    <img src={specialtiesIcon} alt='specialties' className='sn-iconImg'></img>
+                    <span className='sn-iconText'>Especialidades</span>
                 </Link>
-                <Link to='/treatments'  className='iconSecond'>
-                    <img src={tretamentsIcon} alt='treatments'></img>
-                    <span>Tratamientos</span>
+                <Link to='/treatments' className='iconSecond'>
+                    <img src={tretamentsIcon} alt='treatments' className='sn-iconImg'></img>
+                    <span className='sn-iconText'>Tratamientos</span>
                 </Link>
             </Container>
         </Navbar >
