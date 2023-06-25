@@ -2,8 +2,8 @@ import React from "react";
 import { Route , Routes , Navigate } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Login } from '../Login/Login'
-import { Signin } from '../Signin/Signin'
 import { Dentists } from '../Dentists/Dentists'
+import { Signup } from '../Signup/Signup'
 import { Specialties } from '../Specialties/Specialties'
 import { Treatments } from '../Treatments/Treatments'
 import { Profile } from '../Profile/Profile'
@@ -16,7 +16,7 @@ export function Body() {
             <Route path="*" element={<Navigate to="/" />} />
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/signin' element={<Signin />} />
+            <Route path='/signup' element={<Signup />} />
             <Route path='/dentists' element={<Dentists />} />
             <Route path='/specialties' element={<Specialties />} />
             <Route path='/treatments' element={<Treatments />} />

@@ -27,7 +27,7 @@ export function Header() {
                         </Link>
                     </nav>
                     : <nav className='nav-icons'>
-                        <Link to='/signin'>
+                        <Link to='/signup'>
                             <img src={signinIcon} alt='signin' className='iconNavbar'></img>
                         </Link>
 
