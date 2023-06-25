@@ -17,6 +17,7 @@ export function Login() {
         passwordError: "",
     });
     const [welcome, setWelcome] = useState('')
+    const [badRequest, setBadRequest] = useState('');
 
     const navigate = useNavigate();
 
@@ -44,11 +45,14 @@ export function Login() {
 
                 setTimeout(() => {
                     navigate("/");
-                }, 1500);
+                }, 1000);
 
-                setWelcome(`Bienvenido de nuevo, ${tokenDecoded.name}`);
+                // setWelcome(`Bienvenido de nuevo, ${tokenDecoded.name}`);
             })
-            .catch((error) => console.log(error));
+            .catch(error => {
+                console.log(error.response.status);
+                setBadRequest(`Las credenciales no son correctas`)
+            })
     };
 
     // evita el comportamiento por default del formulario (enviar y recagar la pagina), para hacer antes las validaciones 
@@ -84,6 +88,7 @@ export function Login() {
                 <div className="errorText">{credentialsError.passwordError}</div>
                 <button type='submit'>Login</button>
                 <span>¿No tienes cuenta aún?</span><Link to='/signin'><span>Regístrate</span></Link>
+                <div>{badRequest}</div>
 
             </form>
         </>
