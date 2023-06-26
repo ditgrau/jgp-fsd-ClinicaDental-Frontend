@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from '../../services/apiCalls';
 import { checkError } from '../../services/checkError';
-import { login } from '../../Redux/userSlice'
+import { login } from '../../Redux/userSlice';
+import { NavButton } from '../../componentes/NavButton/NavButton';
 import '../Login/Login.css'
 
 export function Login() {
@@ -96,7 +97,7 @@ export function Login() {
                     onBlur={(e) => inputCheck(e)}>
                 </input>
                 <div className="errorText">{credentialsError.passwordError}</div>
-                <button type='submit'>Iniciar sesión</button>
+                <NavButton textButton='Iniciar sesión'/>
                 <div>¿No tienes cuenta aún?</div>
                 <Link to='/signup'><span className='link-text'> Regístrate aquí</span></Link>
                 <div className="errorText">{badRequest}</div>

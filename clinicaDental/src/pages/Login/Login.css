@@ -7,9 +7,6 @@
     color: #143157;
 }
 
-.login-input:focus {
-}
-
 ::placeholder {
     color: #5a7ba8b3;
     padding-left: .4rem;
@@ -19,21 +16,6 @@
     font-size: 0.7rem;
     font-weight: 600;
     color:rgb(218, 42, 42)
-}
-
-button {
-    border-radius: .6rem !important;
-    padding: .3rem;
-    width: 8.5rem;
-    background-color: #0c2950;
-    color: white;
-    margin: 2rem !important;
-    transition: .5s ease box-shadow;
-}
-
-button:hover {
-    box-shadow: .3rem .3rem .4rem rgba(122, 152, 180, 0.6);
-    transition: .3s ease box-shadow;
 }
 
 .login-form {

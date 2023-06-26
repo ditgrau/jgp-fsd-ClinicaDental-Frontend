@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { signup } from '../../services/apiCalls';
 import { checkError } from '../../services/checkError';
 import '../Signup/Signup.css'
+import { NavButton } from "../../componentes/NavButton/NavButton";
 
 export function Signup() {
     const [dataUser, setDataUser] = useState({
@@ -85,7 +86,7 @@ export function Signup() {
                     name='password' placeholder='*******' type='password' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="login-input" />
                 <div className="errorText">{credentialsError.passwordError}</div>
                 <div className={errorClassName}>No se puede registrar</div>
-                <button type='submit'>Registro</button>
+                <NavButton textButton='Registro'/>
                 <span>Al continuar, aceptas nuestros</span>
                 <Link to='/' className='link-text'>Términos de Uso y Política de Privacidad</Link>
             </form>
