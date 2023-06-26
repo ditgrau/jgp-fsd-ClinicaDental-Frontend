@@ -1,9 +1,11 @@
 import React from 'react';
 import jwt_decode from 'jwt-decode';
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { login } from '../../services/apiCalls';
+import { loginUser } from '../../services/apiCalls';
 import { checkError } from '../../services/checkError';
+import { login } from '../../Redux/userSlice'
 import '../Login/Login.css'
 
 export function Login() {
@@ -20,6 +22,7 @@ export function Login() {
     const [badRequest, setBadRequest] = useState('');
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -37,19 +40,27 @@ export function Login() {
     };
 
     const logUser = () => {
-        login(credentials)
+        loginUser(credentials)
             .then((result) => {
-                let tokenDecoded = jwt_decode(result.data.token);
-                console.log(result.data.token)
+                let tokenDecoded = jwt_decode(result.token);
+                dispatch(
+                    login({
+                        token: result.token,
+                        id: tokenDecoded.id,
+                        name: tokenDecoded.name,
+                        email: tokenDecoded.email
+                    })
+                )
+                console.log(result.token)
                 console.log(tokenDecoded);
 
                 setTimeout(() => {
                     navigate("/");
-                }, 2000);
+                }, 500);
 
             })
             .catch(error => {
-                console.log(error.response.status);
+                console.log(error.response);
                 setBadRequest(`Las credenciales no son correctas`)
             })
     };
