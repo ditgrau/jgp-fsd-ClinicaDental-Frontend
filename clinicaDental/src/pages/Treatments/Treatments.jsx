@@ -1,20 +1,20 @@
-import React, { useEffect , useState } from 'react'
-import { getAllTreatments } from '../../services/apiCalls';
+// import React, { useEffect , useState } from 'react'
+// import { getAllTreatments } from '../../services/apiCalls';
 
 
-export function Treatments () {
+// export function Treatments () {
 
-    const [treatments, setTreatments] = useState([]);
+//     const [treatments, setTreatments] = useState([]);
 
-    useEffect(()=> {
-        if(treatments.length === 0){
-            getAllTreatments()
-            .then(result => console.log(result.data.allTreatments))
+//     useEffect(()=> {
+//         if(treatments.length === 0){
+//             getAllTreatments()
+//             .then(result => console.log(result))
 
-    }
-},[treatments])
+//     }
+// },[treatments])
 
-    return (
-        <h1>Treatments</h1>
-    )
-}
+//     return (
+//         <h1>Treatments</h1>
+//     )
+// }
