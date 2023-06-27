@@ -5,10 +5,14 @@
 }
 
 .profile-card {
-    display: inline-flex;
-    justify-content: space-around;
-    padding: .5rem;
+    display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    display: inline-flex;
+    padding: .5rem;
+    box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.075);
+    border: solid 1px rgb(232, 232, 232);
+    border-radius: .7rem;
 }
 
 .id-card {
@@ -32,13 +36,11 @@
     max-width: 100%;
     overflow: hidden;
     word-break: break-word;
-    margin-left: 1rem;
 }
 
 .profile-footer {
-    background-color: white !important;
     display: flex;
-    flex-direction: row-reverse;
+    transform: translate(-.4rem, 0);
 }
 
 .title-card {

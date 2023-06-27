@@ -52,8 +52,6 @@ export function Login() {
                         email: tokenDecoded.email
                     })
                 )
-                console.log(result.token)
-                console.log(tokenDecoded);
 
                 setTimeout(() => {
                     navigate("/");
