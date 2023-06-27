@@ -2,37 +2,3 @@
     width: 100vw;
     background-color: #001c40;
 }
-
-.iconSecond {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: .8rem;
-    color: #ffffff;
-    margin: .1rem;
-    width: 3.5rem;
-}
-
-.sn-iconImg {
-    padding: .4rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    box-shadow: 0 0 .5rem rgba(122, 152, 180, 0.6);
-    border: solid 1px rgb(0, 7, 18);
-}
-
-.iconSecond:hover .sn-iconText {
-    display: block;
-}
-
-.iconSecond:hover .sn-iconImg {
-    display: none;
-}
-
-.sn-iconText {
-    display: none;
-}
-

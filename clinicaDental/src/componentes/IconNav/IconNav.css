@@ -1,0 +1,48 @@
+.iconNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.iconNav:hover .iconText {
+    display: block;
+}
+
+.iconNav:hover .iconImg {
+    display: none;
+}
+
+.iconImg {
+    padding: .4rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.iconText {
+    display: none;
+    font-size: .8rem;
+}
+
+.darkStyle {
+    box-shadow: 0 0 .5rem rgba(122, 152, 180, 0.6);
+    border: solid 1px rgb(0, 7, 18);
+}
+
+.whiteStyle {
+    box-shadow: 0 0 .5rem rgba(0,0,0,.1);
+    border: solid 1px rgb(232, 232, 232);
+}
+
+.darkStyleText {
+    color: #77a3dc;
+    font-weight: 500;
+}
+
+.whiteStyleText {
+    color: #001c40;
+}
