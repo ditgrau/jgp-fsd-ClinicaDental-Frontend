@@ -14,7 +14,9 @@ import editIcon from '../../assets/writing.svg'
 
 export function Profile() {
 
-
+    const [user, setUser] = useState({});
+    const [editing, setEditing] = useState(false);
+    const [body, setBody] = useState({});
 
     const dataSlice = useSelector(userData);
     const isLogged = (!!dataSlice.credentials.token)
@@ -25,11 +27,11 @@ export function Profile() {
 
 useEffect(()=> {
     getMyProfile(token).then ((res)=>{
-        console.log(res)
-    })
-}
-
-)
+        setUser(res)
+        
+    }) 
+}, [])
+console.log(user.id)
 
     return (
         <Container>
@@ -37,24 +39,24 @@ useEffect(()=> {
                 <Col xs={10} md={4} className="profile-card">
                     <aside className="id-card">
                         <img src={userIcon} alt='userProfile'></img>
-                        <span>id: 167809</span>
+                        <span>{user.id}</span>
                     </aside>
                     <section className="data-card">
                         <div>
                             <p className="title-card">Nombre</p>
-                            <span>Martina</span>
+                            <span>{user.name}</span>
                         </div>
                         <div>
                             <p className="title-card">Apellidos</p>
-                            <span>de los Olmos Puigdollers Carbonell</span>
+                            <span>{user.surname}</span>
                         </div>
                         <div>
                             <p className="title-card">DNI</p>
-                            <span>987987</span>
+                            <span>{user.dni}</span>
                         </div>
                         <div>
                             <p className="title-card">email</p>
-                            <span>maria@email.com</span>
+                            <span>{user.email}</span>
                         </div>
                         <div className="profile-footer">
                             <IconNav link='/edit' className='whiteStyle' icon={editIcon} text='Editar' />

@@ -11,7 +11,23 @@ export const signup = async (dataUser) => {
     return await axios.post(`${ENDPOINT}/signup`, dataUser)
 }
 
-export const getAllTreatments = async () => {
-    return await axios.get(`${ENDPOINT}/treat/getAll`)
+// export const getAllTreatments = async () => {
+//     let res = await axios.get(`${ENDPOINT}/treat/getAll`)
+//     return res.data.allTreatments
+// }
+
+export const getMyProfile = async (token) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/user/myProfile`, config)
+    return res.data.myProfile
 }
 
+// export const updateProfile = async () => {
+//     let res = await axios.put(`${ENDPOINT}/user/updateProfile`)
+//     return res
+// }
