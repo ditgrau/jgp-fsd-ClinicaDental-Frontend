@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { getMyAppt, getMyApptDentist } from '../../services/apiCalls';
-import { userData } from "../../Redux/userSlice";
-
-import '../Appointments/Appointments.css'
-import { useSelector } from "react-redux";
+import { Token , Role} from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
+import calendarIcon from '../../assets/calendar.svg'
+import clockIcon from '../../assets/clock.svg'
+import '../Appointments/Appointments.css'
+
 
 export function Appointments() {
 
     const [myAppointments, setMyAppointments] = useState([])
-    const dataSlice = useSelector(userData);
-    const token = dataSlice?.credentials?.token
-    const role = dataSlice.data.role
-    console.log(role)
-
+    const token = Token()
+    const role = Role()
 
     useEffect(() => {
         switch (role) {
@@ -26,18 +24,56 @@ export function Appointments() {
         }
     }, []);
 
-    let arrayAppt = myAppointments.myAppointments
-    console.log(arrayAppt)
+    console.log(myAppointments)
 
     return (
-        <Container>HOLA
+        <Container>
             <Row className="main-row">
-                {arrayAppt.length > 0
+                <span className="title-appt">PRÓXIMAS CITAS</span>
+                {myAppointments.length > 0
                     ?
                     (
-                        arrayAppt.map((appt) => (
-                            <Col key={appt.id} xs={10} md={7} className="main-card">
-                                <span>HOLA</span>
+                        myAppointments.map((appt) => (
+                            <Col key={appt.id} xs={10} md={6} className="card-appt main-card">
+                                <section >
+                                    <div className="info-date">
+                                        <span>{appt.date}</span>
+                                        <img src={calendarIcon} alt='calendar'></img>
+                                    </div>
+                                    <div className="info-date">
+                                        <span>{appt.hour}</span>
+                                        <img src={clockIcon} alt='clock'></img>
+                                    </div>
+                                </section>
+                                <section className="appt-body">
+                                    <div>
+                                        <span className="title-card">Tratamiento</span>
+                                        <span className="info-user">{appt.Treatment.name}</span>
+                                    </div>
+                                    {role === 3
+                                        ?
+                                        (
+                                            <>
+                                                <div>
+                                                    <span className="title-card">Dentista</span>
+                                                    <span className="info-user">{appt.Dentist.User.name} {appt.Dentist.User.surname}</span>
+
+                                                </div>
+                                                <div>
+                                                    <span className="title-card">Colegiado</span>
+                                                    <span className="info-user">{appt.Dentist.collegiate}</span>
+                                                </div>
+                                            </>
+
+                                        )
+                                        :
+                                        (
+                                            <div>
+                                                <span className="title-card">Paciente</span>
+                                                <span className="info-user">{appt.User.name} {appt.User.surname}</span>
+                                            </div>
+                                        )}
+                                </section>
                             </Col>
                         ))
                     )

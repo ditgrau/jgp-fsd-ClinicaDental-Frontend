@@ -1,0 +1,25 @@
+.appt-body {
+    text-align: start;
+    margin-left: 2rem;
+}
+
+.card-appt {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.info-date {
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    justify-content: end;
+    gap: 0.4rem;
+    padding-right: 2rem;
+}
+
+.title-appt {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}

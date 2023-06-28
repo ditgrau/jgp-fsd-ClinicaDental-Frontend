@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
 import { IconNav } from '../../componentes/IconNav/IconNav'
 import { Container, Row, Col } from 'react-bootstrap'
-import { userData } from '../../Redux/userSlice';
 import { getMyProfile, updateDentistProfile, updateProfile } from '../../services/apiCalls';
-
+import { Token } from "../../services/dataFromSlice";
 import '../Profile/Profile.css'
 
 
@@ -21,9 +19,7 @@ export function Profile() {
     const [body, setBody] = useState({});
     const [letra, setLetra] = useState('');
 
-    const dataSlice = useSelector(userData);
-    // const isLogged = (!!dataSlice.credentials.token)
-    const token = dataSlice?.credentials?.token;
+    const token = Token()
     const isDentist = (!!user.Dentist)
     
     const inputHandler = (e) => {
@@ -55,7 +51,7 @@ export function Profile() {
     return (
         <Container>
             <Row className="main-row">
-                <Col xs={10} md={4} className="main-card">
+                <Col xs={10} md={4} className="main-card profile-card">
                     <section className="id-card">
                         <div className='capital-letter'><div>{letra}</div></div>
                         <span className='id-number'>id {user.id}</span>

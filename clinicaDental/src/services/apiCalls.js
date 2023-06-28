@@ -59,16 +59,27 @@ export const getMyAppt = async (token) => {
         }
     }
     let res = await axios.get(`${ENDPOINT}/appoint/myAppointments`, config)
-    return res.data
+    return res.data.myAppointments
 }
 
 export const getMyApptDentist = async (token) => {
     let config = {
-        headers:
+        headers: 
         {
             Authorization: `Bearer ${token}`,
         }
     }
     let res = await axios.get(`${ENDPOINT}/appoint/appointmentsDentist`, config)
-    return res.data
+    return res.data.myAppointments
+}
+
+export const getAllAppt = async (token) => {
+    let config = {
+        headers: 
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/appoint/getAll`, config)
+    return res.data.allAppt
 }
