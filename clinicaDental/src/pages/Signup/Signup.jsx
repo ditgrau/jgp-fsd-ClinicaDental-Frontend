@@ -74,16 +74,16 @@ export function Signup() {
         <>
             <form onSubmit={handleSubmit} className='signup-form'>
                 <input
-                    name='name' placeholder='Name' type='text' onChange={(e) => inputHandler(e)} className="login-input" />
+                    name='name' placeholder='Name' type='text' onChange={(e) => inputHandler(e)} className="main-input" />
                 <input
-                    name='surname' placeholder='Surname' type='text' onChange={(e) => inputHandler(e)} className="login-input" />
+                    name='surname' placeholder='Surname' type='text' onChange={(e) => inputHandler(e)} className="main-input" />
                 <input
-                    name='dni' placeholder='Identity number' type='text' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="login-input" />
+                    name='dni' placeholder='Identity number' type='text' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="main-input" />
                 <input
-                    name='email' placeholder='email@email.com' type='email' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="login-input" />
+                    name='email' placeholder='email@email.com' type='email' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="main-input" />
                 <div className="errorText">{credentialsError.emailError}</div>
                 <input
-                    name='password' placeholder='*******' type='password' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="login-input" />
+                    name='password' placeholder='*******' type='password' onChange={(e) => inputHandler(e)} onBlur={(e) => inputCheck(e)} className="main-input" />
                 <div className="errorText">{credentialsError.passwordError}</div>
                 <div className={errorClassName}>No se puede registrar</div>
                 <NavButton textButton='Registro'/>

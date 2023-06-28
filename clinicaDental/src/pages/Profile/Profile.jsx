@@ -68,28 +68,28 @@ export function Profile() {
                         <div>
                             <span className="title-card">Nombre</span>
                             {editing
-                                ? (<input className="login-input" type="text" name="name" placeholder={user.name} onChange={(e) => inputHandler(e)}></input>)
+                                ? (<input className="main-input" type="text" name="name" placeholder={user.name} onChange={(e) => inputHandler(e)}></input>)
                                 : (<span className="info-user">{user.name}</span>)
                             }
                         </div>
                         <div>
                             <span className="title-card">Apellidos</span>
                             {editing
-                                ? (<input className="login-input" type="text" name="surname" placeholder={user.surname} onChange={(e) => inputHandler(e)}></input>)
+                                ? (<input className="main-input" type="text" name="surname" placeholder={user.surname} onChange={(e) => inputHandler(e)}></input>)
                                 : (<span className="info-user">{user.surname}</span>)
                             }
                         </div>
                         <div>
                             <span className="title-card">DNI</span>
                             {editing
-                                ? (<input className="login-input" type="text" name="dni" placeholder={user.dni} onChange={(e) => inputHandler(e)}></input>)
+                                ? (<input className="main-input" type="text" name="dni" placeholder={user.dni} onChange={(e) => inputHandler(e)}></input>)
                                 : (<span className="info-user">{user.dni}</span>)
                             }
                         </div>
                         <div>
                             <span className="title-card">Email</span>
                             {editing
-                                ? (<input className="login-input" type="email" name="email" placeholder={user.email} onChange={(e) => inputHandler(e)}></input>)
+                                ? (<input className="main-input" type="email" name="email" placeholder={user.email} onChange={(e) => inputHandler(e)}></input>)
                                 : (<span className="info-user">{user.email}</span>)
                             }
                         </div>
@@ -101,7 +101,7 @@ export function Profile() {
                                     <div>
                                         <span className="title-card">Collegiate</span>
                                         {editing
-                                            ? (<input className="login-input" type="text" name="collegiate" placeholder={user.Dentist.collegiate} onChange={(e) => inputHandler(e)}></input>)
+                                            ? (<input className="main-input" type="text" name="collegiate" placeholder={user.Dentist.collegiate} onChange={(e) => inputHandler(e)}></input>)
                                             : (<span className="info-user">{user.Dentist.collegiate}</span>)
                                         }
                                     </div>

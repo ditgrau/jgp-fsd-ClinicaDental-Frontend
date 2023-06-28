@@ -77,7 +77,7 @@ export function Login() {
             <form onSubmit={handleSubmit} className='login-form'>
                 <input
                     type='email'
-                    className='login-input'
+                    className='main-input'
                     placeholder='user@email.com'
                     name={'email'}
                     value={credentials.email}
@@ -87,7 +87,7 @@ export function Login() {
                 <div className="errorText">{credentialsError.emailError}</div>
                 <input
                     type='password'
-                    className='login-input'
+                    className='main-input'
                     placeholder='password'
                     name={'password'}
                     value={credentials.password}
