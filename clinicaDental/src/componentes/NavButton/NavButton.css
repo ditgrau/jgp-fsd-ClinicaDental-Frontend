@@ -4,11 +4,12 @@
     width: 8.5rem;
     background-color: #0c2950;
     color: white;
-    margin: 2rem !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     transition: .5s ease box-shadow;
 }
 
 .navButton:hover {
-    box-shadow: .3rem .3rem .4rem rgba(122, 152, 180, 0.6);
+    box-shadow: .2rem .2rem .3rem rgba(122, 152, 180, 0.481);
     transition: .3s ease box-shadow;
 }

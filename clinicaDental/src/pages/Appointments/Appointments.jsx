@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getMyAppt, getMyApptDentist } from '../../services/apiCalls';
-import { Token , Role} from "../../services/dataFromSlice";
+import { Token, Role } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
+import { NavButton } from "../../componentes/NavButton/NavButton";
 import calendarIcon from '../../assets/calendar.svg'
 import clockIcon from '../../assets/clock.svg'
 import '../Appointments/Appointments.css'
@@ -10,6 +12,7 @@ import '../Appointments/Appointments.css'
 export function Appointments() {
 
     const [myAppointments, setMyAppointments] = useState([])
+    const [title, setTitle] = useState('PRÓXIMAS CITAS')
     const token = Token()
     const role = Role()
 
@@ -24,12 +27,16 @@ export function Appointments() {
         }
     }, []);
 
-    console.log(myAppointments)
+    useEffect(() => {
+        if (myAppointments.length === 0) {
+            setTitle('NO HAY CITAS');
+        }
+    }, [myAppointments]);
 
     return (
         <Container>
             <Row className="main-row">
-                <span className="title-appt">PRÓXIMAS CITAS</span>
+                <span className="title-appt">{title}</span>
                 {myAppointments.length > 0
                     ?
                     (
@@ -79,8 +86,9 @@ export function Appointments() {
                     )
                     :
                     (
-                        <span>adios
-                        </span>
+                        <Col xs={5} md={2} margin={0}>
+                        <Link to= '/'><NavButton textButton='Pide tu cita'/></Link>
+                        </Col>
                     )}
             </Row>
         </Container>
