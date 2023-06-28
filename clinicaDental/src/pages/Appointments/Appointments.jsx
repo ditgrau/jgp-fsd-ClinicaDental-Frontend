@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getMyAppt, getMyApptDentist } from '../../services/apiCalls';
 import { Token, Role } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
@@ -15,17 +15,23 @@ export function Appointments() {
     const [title, setTitle] = useState('PRÓXIMAS CITAS')
     const token = Token()
     const role = Role()
+    const navigate = useNavigate()
+
 
     useEffect(() => {
-        switch (role) {
-            case 3:
-                getMyAppt(token).then(res => setMyAppointments(res));
-                break;
-            case 2:
-                getMyApptDentist(token).then(res => setMyAppointments(res));
-                break;
-        }
-    }, []);
+        if (!token) {
+            return navigate('/')
+        } else {
+            switch (role) {
+                case 3:
+                    getMyAppt(token).then(res => setMyAppointments(res));
+                    break;
+                case 2:
+                    getMyApptDentist(token).then(res => setMyAppointments(res));
+                    break;
+            }
+        }  
+    }, [token]);
 
     useEffect(() => {
         if (myAppointments.length === 0) {
@@ -87,7 +93,7 @@ export function Appointments() {
                     :
                     (
                         <Col xs={5} md={2} margin={0}>
-                        <Link to= '/'><NavButton textButton='Pide tu cita'/></Link>
+                            <Link to='/'><NavButton textButton='Pide tu cita' /></Link>
                         </Col>
                     )}
             </Row>
