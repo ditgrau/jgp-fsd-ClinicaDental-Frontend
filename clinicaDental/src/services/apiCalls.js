@@ -27,7 +27,26 @@ export const getMyProfile = async (token) => {
     return res.data.myProfile
 }
 
-// export const updateProfile = async () => {
-//     let res = await axios.put(`${ENDPOINT}/user/updateProfile`)
-//     return res
-// }
+export const updateProfile = async (body, token) => {
+    let config = {
+        headers: 
+        {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    let res = await axios.put(`${ENDPOINT}/user/updateProfile`, body, config)
+    console.log (body)
+    return res
+}
+
+export const updateDentistProfile = async (body, token) => {
+    let config = {
+        headers: 
+        {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    console.log (body)
+    let res = await axios.put(`${ENDPOINT}/dentist/updateDentistProfile`, body, config)
+    return res
+}
