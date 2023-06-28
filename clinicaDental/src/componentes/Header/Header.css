@@ -8,5 +8,10 @@
     margin-right: 2rem;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
+.nav-userName {
+    font-size: .8rem;
+    margin-right: .6rem;
+}

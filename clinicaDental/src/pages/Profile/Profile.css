@@ -1,50 +1,75 @@
 .profile-row {
     justify-content: space-evenly;
-    gap: 1rem;
     margin-top: 2.5rem !important;
 }
 
 .profile-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     display: inline-flex;
-    padding: .5rem;
+    flex-direction: column;
+    padding: 1rem;
     box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.075);
     border: solid 1px rgb(232, 232, 232);
     border-radius: .7rem;
 }
 
 .id-card {
-    width: 4.5rem;
     display: flex;
     flex-direction: column;
-    margin: .3rem;
-    font-size: 0.8rem;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
 }
 
 .data-card {
     display: inline-flex;
     flex-direction: column;
     text-align: left;
-    margin: .5rem;
     overflow-x: auto;
     gap: .5rem;
+    padding: 2rem;
 }
 
-.data-card span {
-    max-width: 100%;
-    overflow: hidden;
-    word-break: break-word;
+.capital-letter {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #618ac1;
+    color: white;
+    font-size: 2.2rem;
+    justify-content: center;
+    display:flex;
+    align-items: center;
 }
 
-.profile-footer {
-    display: flex;
-    transform: translate(-.4rem, 0);
+.id-number {
+    font-size: 0.8rem;
+    margin-top: .2rem;
+}
+
+.title-profile {
+    font-size: 1.8rem;
+}
+
+.subtitle-profile {
+    font-size: .8rem;
+    font-weight: 700;
 }
 
 .title-card {
     color: #273d5d;
     font-weight: 700;
     margin-bottom: .2rem;
+    margin-right: 1rem;
+}  
+
+.info-user {
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.profile-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 2rem;
 }
