@@ -4,13 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { getMyProfile, updateDentistProfile, updateProfile } from '../../services/apiCalls';
 import { Token } from "../../services/dataFromSlice";
 import '../Profile/Profile.css'
-
+import { useNavigate } from "react-router-dom";
 
 import newCitaIcon from '../../assets/calendar-plus.svg'
 import editIcon from '../../assets/writing.svg'
 import citasIcon from '../../assets/star.svg'
 import checkIcon from '../../assets/check.svg'
-
 
 export function Profile() {
 
@@ -18,10 +17,16 @@ export function Profile() {
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState({});
     const [letra, setLetra] = useState('');
-
+    const navigate = useNavigate()
     const token = Token()
     const isDentist = (!!user.Dentist)
     
+    useEffect(()=>{
+        if (!token) {
+            navigate('/')
+        }
+    }, [])
+
     const inputHandler = (e) => {
         setBody((prevState) => ({
             ...prevState,
