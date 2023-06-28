@@ -16,7 +16,7 @@ import './Header.css'
 
 export function Header() {
 
-    const [user, setUser] = useState({});
+    const [name, setName] = useState('');
     const dispatch = useDispatch();
     const dataSlice = useSelector(userData)
 
@@ -25,7 +25,7 @@ export function Header() {
 
     useEffect(() => {
         getMyProfile(token).then((res) => {
-            setUser(res)
+            setName(`${(res.name).toUpperCase()}`)
         })
     }, [])
 
@@ -35,7 +35,7 @@ export function Header() {
             {
                 isLogged
                     ? <nav className='nav-icons'>
-                        <span className='nav-userName'>{user.name} {user.surname}</span>
+                        <span className='nav-userName'>{name}</span>
                         <IconNav link='/profile' className='whiteStyle' icon={userIcon} text='Mi Perfil'/>
                         <IconNav link='/' className='whiteStyle' icon={logoutIcon}  text='Logout' clickFunction={() => dispatch(logout())}/>
                     </nav>

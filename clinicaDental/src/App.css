@@ -6,3 +6,16 @@
   width: 100vw;
 }
 
+.main-row {
+    justify-content: space-evenly;
+    margin-top: 2.5rem !important;
+    gap: .5rem;
+}
+
+.main-card {
+    
+    padding: 1rem;
+    box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.075);
+    border: solid 1px rgb(232, 232, 232);
+    border-radius: .7rem;
+}
