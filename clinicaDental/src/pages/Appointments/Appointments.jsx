@@ -13,6 +13,7 @@ export function Appointments() {
 
     const [myAppointments, setMyAppointments] = useState([])
     const [title, setTitle] = useState('PRÓXIMAS CITAS')
+    const [hasData, setHasData] = useState(false)
     const token = Token()
     const role = Role()
     const navigate = useNavigate()
@@ -24,20 +25,29 @@ export function Appointments() {
         } else {
             switch (role) {
                 case 3:
-                    getMyAppt(token).then(res => setMyAppointments(res));
+                    getMyAppt(token).then(res => {
+                        setMyAppointments(res)
+                        setHasData(true)
+                    })
                     break;
                 case 2:
-                    getMyApptDentist(token).then(res => setMyAppointments(res));
+                    getMyApptDentist(token).then(res => {
+                        setMyAppointments(res)
+                        setHasData(true)
+                    });
                     break;
             }
-        }  
+        }
     }, [token]);
 
+
+    console.log(myAppointments.length)
     useEffect(() => {
-        if (myAppointments.length === 0) {
-            setTitle('NO HAY CITAS');
-        }
-    }, [myAppointments]);
+        hasData
+            ? setTitle(myAppointments.length === 0 ? "NO HAY CITAS" : "PRÓXIMAS CITAS")
+            : setTitle("PRÓXIMAS CITAS");
+    }, [hasData, myAppointments]);
+
 
     return (
         <Container>
