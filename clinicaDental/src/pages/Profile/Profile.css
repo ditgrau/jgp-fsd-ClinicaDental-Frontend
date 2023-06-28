@@ -1,9 +1,10 @@
-.profile-row {
+.main-row {
     justify-content: space-evenly;
     margin-top: 2.5rem !important;
+    gap: .5rem;
 }
 
-.profile-card {
+.main-card {
     justify-content: center;
     display: inline-flex;
     flex-direction: column;

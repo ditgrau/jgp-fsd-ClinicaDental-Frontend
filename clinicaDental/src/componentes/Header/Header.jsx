@@ -29,8 +29,6 @@ export function Header() {
         })
     }, [])
 
-    console.log(user)
-
     return (
         <Navbar className='navbarMain' style={{ justifyContent: 'space-between' }}>
             <Logo />

@@ -27,6 +27,7 @@ export function Appointments() {
     }, []);
 
     let arrayAppt = myAppointments.myAppointments
+    console.log(arrayAppt)
 
     return (
         <Container>HOLA

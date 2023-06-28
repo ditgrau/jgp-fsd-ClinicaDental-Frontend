@@ -54,9 +54,8 @@ export function Profile() {
     
     return (
         <Container>
-            <Row className="profile-row">
-                <Col xs={10} md={4} className="profile-card">
-
+            <Row className="main-row">
+                <Col xs={10} md={4} className="main-card">
                     <section className="id-card">
                         <div className='capital-letter'><div>{letra}</div></div>
                         <span className='id-number'>id {user.id}</span>
