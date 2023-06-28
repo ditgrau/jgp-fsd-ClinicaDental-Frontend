@@ -1,11 +1,10 @@
 .navbarMain {
-    width: 100vw;
     box-shadow: 0 0 .5rem rgba(0,0,0,.1);
     border: solid 1px rgb(232, 232, 232);
 }
 
 .nav-icons {
-    margin-right: 2rem;
+    margin-right: .5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -14,4 +13,12 @@
 .nav-userName {
     font-size: .8rem;
     margin-right: .6rem;
+}
+
+
+/* LAPTOP */
+@media only screen and (min-width: 1000px) {
+.nav-icons {
+    margin-right: 2rem;
+}
 }
