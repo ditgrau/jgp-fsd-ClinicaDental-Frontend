@@ -11,10 +11,10 @@ export const signup = async (dataUser) => {
     return await axios.post(`${ENDPOINT}/signup`, dataUser)
 }
 
-// export const getAllTreatments = async () => {
-//     let res = await axios.get(`${ENDPOINT}/treat/getAll`)
-//     return res.data.allTreatments
-// }
+export const getAllTreatments = async () => {
+    let res = await axios.get(`${ENDPOINT}/treat/getAll`)
+    return res.data.allTreatments
+}
 
 export const getMyProfile = async (token) => {
     let config = {
@@ -49,4 +49,26 @@ export const updateDentistProfile = async (body, token) => {
     console.log (body)
     let res = await axios.put(`${ENDPOINT}/dentist/updateDentistProfile`, body, config)
     return res
+}
+
+export const getMyAppt = async (token) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/appoint/myAppointments`, config)
+    return res.data
+}
+
+export const getMyApptDentist = async (token) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/appoint/appointmentsDentist`, config)
+    return res.data
 }

@@ -49,7 +49,8 @@ export function Login() {
                         token: result.token,
                         id: tokenDecoded.id,
                         name: tokenDecoded.name,
-                        email: tokenDecoded.email
+                        email: tokenDecoded.email,
+                        role: tokenDecoded.role
                     })
                 )
 
