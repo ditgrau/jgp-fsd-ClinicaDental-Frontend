@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { getPatients } from '../../services/apiCalls';
 import { Token } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
-// import { CardUser } from "../../componentes/cardUser/cardUser";
 
 
 export function Patients() {
@@ -14,10 +13,11 @@ export function Patients() {
     useEffect(() => {
         getPatients(token).then((res) => {
             setPatients(res)
-            // setLetra((res.name)[0].toUpperCase())
+            res.map((obj)=> setLetra((prevImage) => [...prevImage, (obj.name)[0].toUpperCase()]));
         })
     }, [])
     console.log(patients)
+    console.log(letra) 
     return (
         <Container>
             <Row className="main-row">
@@ -25,10 +25,10 @@ export function Patients() {
                 {patients.length > 0
                     ?
                     (
-                        patients.map((elem) => (
+                        patients.map((elem, index) => (
                             <Col key={elem.id} xs={10} md={4} className="card-appt main-card">
                                 <section>
-                                    <div className='capital-letter'><div>L</div></div>
+                                    <div className='capital-letter'><div>{letra[index]}</div></div>
                                     <span className="title-profile"> {elem.name} {elem.surname}</span>
                                 </section>
                                 <section className="data-card">

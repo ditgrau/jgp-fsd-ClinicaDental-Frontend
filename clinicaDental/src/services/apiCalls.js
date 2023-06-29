@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const ENDPOINT = 'http://localhost:3000';
 
+
+//////////////////// AUTH ////////////////////
+
 export const loginUser = async (credentials) => {
     let res = await axios.post(`${ENDPOINT}/login`, credentials)
     return res.data
@@ -11,10 +14,7 @@ export const signup = async (dataUser) => {
     return await axios.post(`${ENDPOINT}/signup`, dataUser)
 }
 
-export const getAllTreatments = async () => {
-    let res = await axios.get(`${ENDPOINT}/treat/getAll`)
-    return res.data.allTreatments
-}
+//////////////////// USER ////////////////////
 
 export const getMyProfile = async (token) => {
     let config = {
@@ -39,6 +39,20 @@ export const updateProfile = async (body, token) => {
     return res
 }
 
+export const getPatients = async (token) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/user/getAllPatients`, config)
+    return res.data.allClients
+}
+
+
+//////////////////// DENTIST ////////////////////
+
 export const updateDentistProfile = async (body, token) => {
     let config = {
         headers: 
@@ -51,16 +65,7 @@ export const updateDentistProfile = async (body, token) => {
     return res
 }
 
-export const getPatients = async (token) => {
-    let config = {
-        headers:
-        {
-            Authorization: `Bearer ${token}`,
-        }
-    }
-    let res = await axios.get(`${ENDPOINT}/user/getAllPatients`, config)
-    return res.data.allClients
-}
+//////////////////// APPOINTMENTS ////////////////////
 
 export const getMyAppt = async (token) => {
     let config = {
@@ -93,4 +98,12 @@ export const getAllAppt = async (token) => {
     }
     let res = await axios.get(`${ENDPOINT}/appoint/getAll`, config)
     return res.data.allAppt
+}
+
+
+//////////////////// TREATMENTS ////////////////////
+
+export const getAllTreatments = async () => {
+    let res = await axios.get(`${ENDPOINT}/treat/getAll`)
+    return res.data.allTreatments
 }
