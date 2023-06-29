@@ -5,7 +5,7 @@
     justify-content: center;
     text-decoration: none;
     width: 3.5rem;
-    height: 3.5rem;
+    height: 3rem;
 }
 
 .iconNav:hover .iconText {
@@ -17,7 +17,7 @@
 }
 
 .iconImg {
-    padding: .4rem;
+    padding: .3rem;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;

@@ -6,6 +6,7 @@ import { Dentists } from '../Dentists/Dentists'
 import { Signup } from '../Signup/Signup'
 import { Specialties } from '../Specialties/Specialties'
 import { Appointments } from '../Appointments/Appointments'
+import { Patients } from '../Patients/Patients'
 // import { Treatments } from '../Treatments/Treatments'
 import { Profile } from '../Profile/Profile'
 import './Body.css'
@@ -22,7 +23,8 @@ export function Body() {
             <Route path='/specialties' element={<Specialties />} />
             {/* <Route path='/treatments' element={<Treatments />} /> */}
             <Route path='/profile' element={<Profile />} />
-            <Route path='/citas' element={<Appointments />} />
+            <Route path='/appointments' element={<Appointments />} />
+            <Route path='/patients' element={<Patients />} />
         </Routes>
     )
 }
