@@ -52,7 +52,7 @@ export function Appointments() {
     return (
         <Container>
             <Row className="main-row">
-                <span className="title-appt">{title}</span>
+                <span className="title-main">{title}</span>
                 {myAppointments.length > 0
                     ?
                     (

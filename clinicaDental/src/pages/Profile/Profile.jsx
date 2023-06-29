@@ -114,7 +114,7 @@ export function Profile() {
                     </section>
                     <div className="profile-footer">
                         <IconNav link='/nuevaCita' className='whiteStyle' icon={newCitaIcon} text='Pedir cita' />
-                        <IconNav link='/citas' className='whiteStyle' icon={citasIcon} text='Mis citas' />
+                        <IconNav link='/appointments' className='whiteStyle' icon={citasIcon} text='Mis citas' />
                         {editing
                             ? (<IconNav className='whiteStyle' icon={checkIcon} text='Guardar' clickFunction={() => editHandler(body, token)} />)
                             : (<IconNav className='whiteStyle' icon={editIcon} text='Editar' clickFunction={() => setEditing(true)} />)
