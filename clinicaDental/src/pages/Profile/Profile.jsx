@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IconNav } from '../../componentes/IconNav/IconNav'
 import { Container, Row, Col } from 'react-bootstrap'
 import { getMyProfile, updateDentistProfile, updateProfile } from '../../services/apiCalls';
-import { Token } from "../../services/dataFromSlice";
+import { Token, Role } from "../../services/dataFromSlice";
 import '../Profile/Profile.css'
 import { useNavigate } from "react-router-dom";
 
@@ -19,9 +19,10 @@ export function Profile() {
     const [letra, setLetra] = useState('');
     const navigate = useNavigate()
     const token = Token()
+    const role = Role()
     const isDentist = (!!user.Dentist)
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         if (!token) {
             navigate('/')
         }
@@ -33,13 +34,13 @@ export function Profile() {
             [e.target.name]: e.target.value,
         }))
     }
-    
+
     const editHandler = (body, token) => {
-        if (isDentist) {
+        if (role === 2) {
             updateDentistProfile(body, token)
                 .then(updateProfile(body, token)
                     .then(res => setEditing(false)))
-        } else {
+        } else if (role === 3) {
             updateProfile(body, token)
                 .then(res => setEditing(false))
         }
@@ -52,7 +53,7 @@ export function Profile() {
             console.log(letra)
         })
     }, [editing])
-    
+
     return (
         <Container>
             <Row className="main-row">
@@ -113,11 +114,20 @@ export function Profile() {
                         }
                     </section>
                     <div className="profile-footer">
-                        <IconNav link='/nuevaCita' className='whiteStyle' icon={newCitaIcon} text='Pedir cita' />
-                        <IconNav link='/appointments' className='whiteStyle' icon={citasIcon} text='Mis citas' />
                         {editing
                             ? (<IconNav className='whiteStyle' icon={checkIcon} text='Guardar' clickFunction={() => editHandler(body, token)} />)
                             : (<IconNav className='whiteStyle' icon={editIcon} text='Editar' clickFunction={() => setEditing(true)} />)
+                        }
+                        {role !== 1
+                            ? (
+                                <>
+                                    <IconNav link='/nuevaCita' className='whiteStyle' icon={newCitaIcon} text='Pedir cita' />
+                                    <IconNav link='/appointments' className='whiteStyle' icon={citasIcon} text='Mis citas' />
+                                </>
+                            )
+                            : (
+                                <></>
+                            )
                         }
                     </div>
                 </Col>

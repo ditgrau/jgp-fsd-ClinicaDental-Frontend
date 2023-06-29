@@ -61,6 +61,7 @@
 
 .profile-footer {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: end;
     padding-right: 2rem;
 }

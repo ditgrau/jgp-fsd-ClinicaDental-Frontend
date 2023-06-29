@@ -31,6 +31,7 @@ export function Appointments() {
                     })
                     break;
                 case 2:
+                case 1:
                     getMyApptDentist(token).then(res => {
                         setMyAppointments(res)
                         setHasData(true)
