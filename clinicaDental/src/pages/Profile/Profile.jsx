@@ -20,6 +20,7 @@ export function Profile() {
     const navigate = useNavigate()
     const {role, token} = useAuth();
     const isDentist = (!!user.Dentist)
+    const textCita = (role===3) ? 'Pedir cita' : 'Crear cita'
 
     useEffect(() => {
         if (!token) {
@@ -119,7 +120,7 @@ export function Profile() {
                         {role !== 1
                             ? (
                                 <>
-                                    <IconNav link='/nuevaCita' className='whiteStyle' icon={newCitaIcon} text='Pedir cita' />
+                                    <IconNav link='/nuevaCita' className='whiteStyle' icon={newCitaIcon} text={textCita} />
                                     <IconNav link='/appointments' className='whiteStyle' icon={citasIcon} text='Mis citas' />
                                 </>
                             )

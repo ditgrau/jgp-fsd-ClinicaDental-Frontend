@@ -37,33 +37,32 @@ export function CardUSer({ elem, index, letra }) {
                     <span className="info-user">{elem.email}</span>
                 </div>
                 {
-                    role !== 2
-                        ? (
-                            <>
-                                <div>
-                                    <span className="title-card">Role</span>
-                                    <span className="info-user">{elem.role}</span>
-                                </div>
-                                <div>
-                                    <span className="title-card">State</span>
-                                    <span className="info-user">{status}</span>
-                                </div>
-                            </>
-                        )
-                        : (<></>)
-                }
-            </section>
-            <section className="profile-footer">
-                <IconNav link='/' className='whiteStyle' icon={editIcon} text='Editar' />
-                <IconNav link='/detail' className='whiteStyle' icon={userIcon} text='Detalle' />
-                {(elem.Appointments).length > 0
-                    ? (
-                        <IconNav link='/detail/appt' className='whiteStyle' icon={calendarIcon} text='Citas' />
+                    role === 1
+                    && (
+                        <>
+                            <div>
+                                <span className="title-card">Role</span>
+                                <span className="info-user">{elem.role}</span>
+                            </div>
+                            <div>
+                                <span className="title-card">State</span>
+                                <span className="info-user">{status}</span>
+                            </div>
+                        </>
                     )
-                    : (<></>)
                 }
             </section>
-
+            {role === 1
+                && (<section className="profile-footer">
+                    <IconNav link='/' className='whiteStyle' icon={editIcon} text='Editar' />
+                    <IconNav link='/detail' className='whiteStyle' icon={userIcon} text='Detalle' />
+                    {(elem.Appointments).length > 0
+                        && (
+                            <IconNav link='/detail/appt' className='whiteStyle' icon={calendarIcon} text='Citas' />
+                        )
+                    }
+                </section>)
+            }
         </Col>
     )
 }
