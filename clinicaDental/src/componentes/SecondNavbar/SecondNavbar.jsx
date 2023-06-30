@@ -21,7 +21,7 @@ export function SecondNavbar() {
                 <IconNav link='/specialties' className='darkStyle' icon={specialtiesIcon} text='Especialidades' />
                 <IconNav link='/treatments' className='darkStyle' icon={tretamentsIcon} text='Tratamientos' />
                 {role === 1 &&
-                <IconNav link='/users' className='darkStyle' icon={usersIcon} text='Usuarios' />
+                <IconNav link='/patients' className='darkStyle' icon={usersIcon} text='Usuarios' />
                 }
                 {role === 2 &&
                 <IconNav link='/patients' className='darkStyle' icon={usersIcon} text='Pacientes' />

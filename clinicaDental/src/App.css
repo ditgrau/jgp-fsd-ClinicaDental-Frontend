@@ -9,11 +9,10 @@
 .main-row {
     justify-content: space-evenly;
     margin-top: 2.5rem !important;
-    gap: .5rem;
+    gap: 1rem;
 }
 
-.main-card {
-    
+.main-card {  
     padding: 1rem;
     box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.075);
     border: solid 1px rgb(232, 232, 232);

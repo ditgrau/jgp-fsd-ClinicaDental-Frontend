@@ -50,6 +50,17 @@ export const getPatients = async (token) => {
     return res.data.allClients
 }
 
+export const getUsers = async (token) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/user/getAll`, config)
+    return res.data.allUsers
+}
+
 
 //////////////////// DENTIST ////////////////////
 

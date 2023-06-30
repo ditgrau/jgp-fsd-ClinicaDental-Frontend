@@ -1,0 +1,9 @@
+.card-users {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-user {
+    display: flex;
+    align-items: center;
+} 
