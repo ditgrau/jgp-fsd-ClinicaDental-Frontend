@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getMyAppt, getMyApptDentist } from '../../services/apiCalls';
-import { Token, Role } from "../../services/dataFromSlice";
+import { useAuth } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavButton } from "../../componentes/NavButton/NavButton";
 import calendarIcon from '../../assets/calendar.svg'
@@ -14,8 +14,7 @@ export function Appointments() {
     const [myAppointments, setMyAppointments] = useState([])
     const [title, setTitle] = useState('PRÓXIMAS CITAS')
     const [hasData, setHasData] = useState(false)
-    const token = Token()
-    const role = Role()
+    const {role, token} = useAuth();
     const navigate = useNavigate()
 
 

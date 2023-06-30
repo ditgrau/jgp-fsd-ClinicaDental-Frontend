@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../Redux/userSlice';
 import { IconNav } from '../IconNav/IconNav'
 import { getMyProfile } from '../../services/apiCalls';
+import { useAuth } from "../../services/dataFromSlice";
+import './Header.css'
+
 import loginIcon from '../../assets/door-enter.svg'
 import signinIcon from '../../assets/user-plus.svg'
 import logoutIcon from '../../assets/door-exit.svg'
 import userIcon from '../../assets/user-circle.svg'
-import { Token } from "../../services/dataFromSlice";
-import './Header.css'
 
 ///////////////////////////////////////////////
 
@@ -18,7 +19,7 @@ export function Header() {
 
     const [name, setName] = useState('');
     const dispatch = useDispatch();
-    const token = Token()
+    const { token} = useAuth();
 
     const isLogged = (!!token)
     

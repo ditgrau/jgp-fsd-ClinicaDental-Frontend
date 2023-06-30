@@ -2,15 +2,21 @@ import { userData } from '../Redux/userSlice'
 import { useSelector } from "react-redux";
 
 
-export const Token = () => {
-const dataSlice = useSelector(userData);
-    const token = dataSlice?.credentials?.token
-    return token
-}
+// export const Token = () => {
+// const dataSlice = useSelector(userData);
+//     const token = dataSlice?.credentials?.token
+//     return token
+// }
 
+// export const Role = () => {
+//     const dataSlice = useSelector(userData);
+//         const role = dataSlice?.data?.role
+//         return role
+//     }
 
-export const Role = () => {
+export const useAuth = () => {
     const dataSlice = useSelector(userData);
-        const role = dataSlice?.data?.role
-        return role
-    }
+    const token = dataSlice?.credentials?.token;
+    const role = dataSlice?.data?.role
+    return {token, role}
+}

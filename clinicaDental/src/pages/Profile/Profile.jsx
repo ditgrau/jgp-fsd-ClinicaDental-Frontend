@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IconNav } from '../../componentes/IconNav/IconNav'
 import { Container, Row, Col } from 'react-bootstrap'
 import { getMyProfile, updateDentistProfile, updateProfile } from '../../services/apiCalls';
-import { Token, Role } from "../../services/dataFromSlice";
+import { useAuth } from "../../services/dataFromSlice";
 import '../Profile/Profile.css'
 import { useNavigate } from "react-router-dom";
 
@@ -18,8 +18,7 @@ export function Profile() {
     const [body, setBody] = useState({});
     const [letra, setLetra] = useState('');
     const navigate = useNavigate()
-    const token = Token()
-    const role = Role()
+    const {role, token} = useAuth();
     const isDentist = (!!user.Dentist)
 
     useEffect(() => {
@@ -64,8 +63,7 @@ export function Profile() {
                         <span className="title-profile"> {user.name} {user.surname}</span>
                         <span className="subtitle-profile">MI PERFIL</span>
                     </section>
-
-                    <section className="data-card">
+                    <section className="profile-card">
                         <div>
                             <span className="title-card">Nombre</span>
                             {editing
