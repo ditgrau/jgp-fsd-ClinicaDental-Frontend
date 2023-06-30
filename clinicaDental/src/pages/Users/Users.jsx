@@ -5,11 +5,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import { CardUSer } from "../../componentes/CardUser/CardUser";
 
 
-export function Patients() {
-    const [patients, setPatients] = useState([])
+export function Users() {
+    const [users, setUsers] = useState([])
     const [letra, setLetra] = useState('');
     const {role, token} = useAuth();
-    const title = 'PACIENTES'
+    const title = 'USUARIOS'
 
     useEffect(() => {
         if (!token || role === 3) {
@@ -18,20 +18,20 @@ export function Patients() {
     }, [])
 
     useEffect(() => {
-        getPatients(token).then((res) => {
-            setPatients(res)
+        getUsers(token).then((res) => {
+            setUsers(res)
             res.map((obj) => setLetra((prevImage) => [...prevImage, (obj.name)[0].toUpperCase()]));
         })}
     , [])
-
+console.log(users);
     return (
         <Container>
             <Row className="main-row">
                 <span className="title-main">{title}</span>
-                {patients.length > 0
+                {users.length > 0
                     ?
                     (
-                        patients.map((elem, index) => (
+                        users.map((elem, index) => (
                             <CardUSer key={elem.id} elem={elem} index={index} letra={letra}/>
                         )))
                     : 
