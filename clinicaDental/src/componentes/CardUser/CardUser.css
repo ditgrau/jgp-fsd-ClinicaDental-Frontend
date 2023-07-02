@@ -1,0 +1,25 @@
+.title-user {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    justify-content: center;
+    padding: .8rem;
+}
+
+.letter-user {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #618ac1;
+    color: white;
+    font-size: 1.5rem;
+    justify-content: center;
+    display:flex;
+    align-items: center;
+}
+
+.title-user{
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-// import './CardUSer.css'
+import './CardUSer.css'
 import { useAuth } from "../../services/dataFromSlice";
 import { IconNav } from "../IconNav/IconNav";
 
@@ -14,10 +14,10 @@ export function CardUSer({ elem, index, letra }) {
 
     return (
 
-        <Col xs={10} md={3} className="card-users main-card">
+        <Col xs={10} md={3} className=" main-card">
             <section className="title-user">
-                <div className='capital-letter'><div>{letra[index]}</div></div>
-                <span className="title-profile"> {elem.name} {elem.surname}</span>
+                <div className='letter-user'><div>{letra[index]}</div></div>
+                <span className="title-user"> {elem.name} {elem.surname}</span>
             </section>
             <section className="data-card">
                 <div>
