@@ -23,7 +23,7 @@ export function Users() {
             res.map((obj) => setLetra((prevImage) => [...prevImage, (obj.name)[0].toUpperCase()]));
         })}
     , [])
-console.log(users);
+
     return (
         <Container>
             <Row className="main-row">
