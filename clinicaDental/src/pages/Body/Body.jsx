@@ -9,8 +9,10 @@ import { Appointments } from '../Appointments/Appointments'
 import { Users } from '../Users/Users'
 // import { Treatments } from '../Treatments/Treatments'
 import { Profile } from '../Profile/Profile'
-import './Body.css'
 import { Patients } from "../Patients/Patients";
+import { AllAppointments } from "../AllAppointments/AllAppointments";
+import { NewAppt } from "../NewAppt/NewAppt";
+import './Body.css'
 
 export function Body() {
 
@@ -25,8 +27,10 @@ export function Body() {
             {/* <Route path='/treatments' element={<Treatments />} /> */}
             <Route path='/profile' element={<Profile />} />
             <Route path='/appointments' element={<Appointments />} />
+            <Route path='/allAppointments' element={<AllAppointments />} />
             <Route path='/users' element={<Users />} />
             <Route path='/patients' element={<Patients />} />
+            <Route path='/newAppt' element={<NewAppt />} />
         </Routes>
     )
 }
