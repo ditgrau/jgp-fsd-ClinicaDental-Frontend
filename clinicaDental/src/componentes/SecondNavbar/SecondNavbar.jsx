@@ -7,8 +7,8 @@ import './SecondNavbar.css'
 import dentistsIcon from '../../assets/users.svg'
 import specialtiesIcon from '../../assets/file-certificate.svg'
 import tretamentsIcon from '../../assets/heart-handshake.svg'
-import usersIcon from '../../assets/users-group.svg'
-import calendarIcon from '../../assets/calendar-white.svg'
+import { IconsDentist } from "../IconsDentist/IconsDentist";
+
 
 
 export function SecondNavbar() {
@@ -24,10 +24,7 @@ export function SecondNavbar() {
                     <IconNav link='/users' className='darkStyle' icon={usersIcon} text='Usuarios' />
                 }
                 {role === 2 &&
-                    <>
-                        <IconNav link='/patients' className='darkStyle' icon={usersIcon} text='Pacientes' />
-                        <IconNav link='/appointments' className='darkStyle' icon={calendarIcon} text='Mis citas' />
-                    </>
+                    <IconsDentist />
                 }
             </Container>
         </Navbar >

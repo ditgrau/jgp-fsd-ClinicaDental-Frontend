@@ -120,7 +120,7 @@ export function Profile() {
                         {role !== 1
                             ? (
                                 <>
-                                    <IconNav link='/nuevaCita' className='whiteStyle' icon={newCitaIcon} text={textCita} />
+                                    <IconNav link='/newAppt' className='whiteStyle' icon={newCitaIcon} text={textCita} />
                                     <IconNav link='/appointments' className='whiteStyle' icon={citasIcon} text='Mis citas' />
                                 </>
                             )
