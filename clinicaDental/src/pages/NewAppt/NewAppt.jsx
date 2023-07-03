@@ -58,10 +58,9 @@ export function NewAppt() {
 return (
     <Container>
         <Row className="main-row">
+        <div className='title-main'>Nueva cita</div>
             <Col xs={10} md={4} className="main-card profile-card">
-                <span>nueva cita</span>
-
-                <select onChange={handleDentist}>
+                <select onChange={handleDentist} className="main-input">
                     <option value="">Selecciona doctor</option>
                     {optDentist.map((dent) => (
                         <option key={dent.id} value={dent.id}>
@@ -70,19 +69,19 @@ return (
                     ))}
                 </select>
 
-                <select onChange={handleTreat}>
+                <select onChange={handleTreat} className="main-input">
                     <option value="">Selecciona tratamiento</option>
                     {optTreat.map((treat) => (
                         <option key={treat.id} value={treat.id}>{treat.name}</option>
                     ))}
                 </select>
 
-                <input
+                <input className="main-input"
                     type="date"
                     name="date"
                     onChange={(e) => inputHandler(e)}
                 />
-                <input
+                <input className="main-input"
                     type="time"
                     name="hour"
                     list="time_list"

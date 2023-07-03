@@ -121,11 +121,6 @@ export function Appointments() {
                             />
                         </Col>
                     )}
-                    <Col xs={10} md={10} margin={0}>
-                        <Link to="/newAppt">
-                            <NavButton textButton="Pide cita" />
-                        </Link>
-                    </Col>
                 </>
             </Row>
         </Container>

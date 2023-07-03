@@ -20,10 +20,8 @@ export function Header() {
     const [name, setName] = useState('');
     const dispatch = useDispatch();
     const { token} = useAuth();
-
     const isLogged = (!!token)
     
-
     useEffect(() => {
         if (!token) {
             setName ('');
@@ -34,7 +32,6 @@ export function Header() {
         }
     }, [token])
  
-    console.log (name)
     return (
         <Navbar className='navbarMain' style={{ justifyContent: 'space-between' }}>
             <Logo />
