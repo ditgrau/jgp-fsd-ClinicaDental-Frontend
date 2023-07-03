@@ -49,8 +49,8 @@ export function Signup() {
                 console.log(tokenDecoded);
 
                 setTimeout(() => {
-                    navigate("/");
-                }, 2000);
+                    navigate("/login");
+                }, 500);
 
             })
             .catch(error => {
