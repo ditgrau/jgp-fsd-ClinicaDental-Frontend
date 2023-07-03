@@ -61,7 +61,7 @@ return (
             <Col xs={10} md={4} className="main-card profile-card">
                 <span>nueva cita</span>
 
-                <select value={apptSel} onChange={handleDentist}>
+                <select onChange={handleDentist}>
                     <option value="">Selecciona doctor</option>
                     {optDentist.map((dent) => (
                         <option key={dent.id} value={dent.id}>
@@ -70,7 +70,7 @@ return (
                     ))}
                 </select>
 
-                <select value={apptSel} onChange={handleTreat}>
+                <select onChange={handleTreat}>
                     <option value="">Selecciona tratamiento</option>
                     {optTreat.map((treat) => (
                         <option key={treat.id} value={treat.id}>{treat.name}</option>
@@ -84,7 +84,7 @@ return (
                 />
                 <input
                     type="time"
-                    name="time"
+                    name="hour"
                     list="time_list"
                     onBlur={(e) => inputHandler(e)}
                 />
