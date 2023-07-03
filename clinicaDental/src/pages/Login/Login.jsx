@@ -55,7 +55,7 @@ export function Login() {
                 )
 
                 setTimeout(() => {
-                    navigate("/");
+                    navigate("/appointments");
                 }, 500);
 
             })
@@ -105,3 +105,5 @@ export function Login() {
         </>
     )
 }
+
+{/* <div className="errorText">{error}</div> */}

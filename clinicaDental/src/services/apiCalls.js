@@ -76,6 +76,11 @@ export const updateDentistProfile = async (body, token) => {
     return res
 }
 
+export const getAllDentist = async () => {
+    let res = await axios.get(`${ENDPOINT}/dentist/getAllDentist`)
+    return res.data.allDentist
+}
+
 //////////////////// APPOINTMENTS ////////////////////
 
 export const getMyAppt = async (token) => {
@@ -111,6 +116,16 @@ export const getAllAppt = async (token) => {
     return res.data.allAppt
 }
 
+export const newAppt = async (body, token) => {
+    let config = {
+        headers: 
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.post(`${ENDPOINT}/appoint/new`, body, config)
+    return res.data
+}
 
 //////////////////// TREATMENTS ////////////////////
 
