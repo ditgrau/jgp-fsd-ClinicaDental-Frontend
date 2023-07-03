@@ -18,4 +18,12 @@
     padding-right: 2rem;
 }
 
+.appt-footer {
+    display: flex;
+    flex-direction: row;
+    padding-right: 2rem;
+    margin-left: 1.4rem;
+    margin-top: .7rem;
+}
+
 

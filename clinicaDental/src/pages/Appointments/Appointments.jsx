@@ -5,16 +5,18 @@ import { useAuth } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavButton } from "../../componentes/NavButton/NavButton";
 import allAppt from '../../assets/arrow-bar-down.svg'
-import '../Appointments/Appointments.css'
 import { IconNav } from "../../componentes/IconNav/IconNav";
 import { ApptCardUser } from "../../componentes/ApptCardUser/ApptCardUser";
 import { ApptCardDentist } from "../../componentes/ApptCardDentist/ApptCardDentist";
+import '../Appointments/Appointments.css'
+import editIcon from '../../assets/writing.svg'
+import deleteIcon from '../../assets/trash.svg'
 
 
 export function Appointments() {
 
     const [myAppointments, setMyAppointments] = useState([])
-    
+
     const [title, setTitle] = useState('PRÓXIMAS CITAS')
     const [hasData, setHasData] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
@@ -60,15 +62,25 @@ export function Appointments() {
                     ?
                     (
                         myAppointments.map((appt) => (
-                            <Col key={appt.id} xs={10} md={6} className="card-appt main-card">
+                            <Col key={appt.id} xs={10} md={6} className="main-card">
+                                <div className="card-appt">
                                 {role === 3
-                                    && <ApptCardUser date={appt.date} hour={appt.hour} treat={appt.Treatment.name} 
-                                    time={appt.Treatment.time} price={appt.Treatment.price} 
-                                    name={appt.Dentist.User.name} surname={appt.Dentist.User.surname} collegiate={appt.Dentist.collegiate} />
+                                    && <ApptCardUser date={appt.date} hour={appt.hour} treat={appt.Treatment.name}
+                                        time={appt.Treatment.time} price={appt.Treatment.price}
+                                        name={appt.Dentist.User.name} surname={appt.Dentist.User.surname}/>
                                 }
                                 {role === 2
                                     && <ApptCardDentist date={appt.date} hour={appt.hour} treat={appt.Treatment.name} name={appt.User.name} surname={appt.User.surname} />
                                 }
+                                </div>
+                                <div className="appt-footer ">
+                                    <IconNav className='whiteStyle' icon={editIcon} text='Editar'
+                                    // clickFunction={() => setEditing(true)}
+                                    />
+                                    <IconNav className='whiteStyle' icon={deleteIcon} text='Borrar'
+                                    // clickFunction={() => setEditing(true)}
+                                    />
+                                </div>
                             </Col>
                         ))
                     )
@@ -86,9 +98,8 @@ export function Appointments() {
                 {role === 2
                     && (
                         <Col xs={10} md={6} className="card-appt">
-                            <IconNav link='/allAppointments' className="whiteStyle" icon={allAppt} text="Todas"  />
+                            <IconNav link='/allAppointments' className="whiteStyle" icon={allAppt} text="Todas" />
                         </Col>
-                        
 
                     )}
             </Row>

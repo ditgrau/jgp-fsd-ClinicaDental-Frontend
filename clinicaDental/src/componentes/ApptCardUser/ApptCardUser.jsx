@@ -2,7 +2,7 @@ import React from "react";
 import calendarIcon from '../../assets/calendar.svg'
 import clockIcon from '../../assets/clock.svg'
 
-export function ApptCardUser({ date, hour, treat, time, price, name, surname, collegiate }) {
+export function ApptCardUser({ date, hour, treat, time, price, name, surname }) {
     
     return (
         <>
@@ -32,10 +32,6 @@ export function ApptCardUser({ date, hour, treat, time, price, name, surname, co
                 <div>
                     <span className="title-card">Dentista</span>
                     <span className="info-user">{name} {surname}</span>
-                </div>
-                <div>
-                    <span className="title-card">Colegiado</span>
-                    <span className="info-user">{collegiate}</span>
                 </div>
                 </section>
             </>
