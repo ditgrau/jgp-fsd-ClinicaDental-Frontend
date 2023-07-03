@@ -57,52 +57,78 @@ export function Appointments() {
     return (
         <Container>
             <Row className="main-row">
-                <span className="title-main">{title}</span>
-                {myAppointments.length > 0
-                    ?
-                    (
+                <>
+                    <span className="title-main">{title}</span>
+                    {myAppointments.length > 0 ? (
                         myAppointments.map((appt) => (
                             <Col key={appt.id} xs={10} md={6} className="main-card">
                                 <div className="card-appt">
-                                {role === 3
-                                    && <ApptCardUser date={appt.date} hour={appt.hour} treat={appt.Treatment.name}
-                                        time={appt.Treatment.time} price={appt.Treatment.price}
-                                        name={appt.Dentist.User.name} surname={appt.Dentist.User.surname}/>
-                                }
-                                {role === 2
-                                    && <ApptCardDentist date={appt.date} hour={appt.hour} treat={appt.Treatment.name} name={appt.User.name} surname={appt.User.surname} />
-                                }
+                                    {role === 3 && (
+                                        <ApptCardUser
+                                            date={appt.date}
+                                            hour={appt.hour}
+                                            treat={appt.Treatment.name}
+                                            time={appt.Treatment.time}
+                                            price={appt.Treatment.price}
+                                            name={appt.Dentist.User.name}
+                                            surname={appt.Dentist.User.surname}
+                                        />
+                                    )}
+                                    {role === 2 && (
+                                        <ApptCardDentist
+                                            date={appt.date}
+                                            hour={appt.hour}
+                                            treat={appt.Treatment.name}
+                                            name={appt.User.name}
+                                            surname={appt.User.surname}
+                                        />
+                                    )}
                                 </div>
-                                <div className="appt-footer ">
-                                    <IconNav className='whiteStyle' icon={editIcon} text='Editar'
+                                <div className="appt-footer">
+                                    <IconNav
+                                        className="whiteStyle"
+                                        icon={editIcon}
+                                        text="Editar"
                                     // clickFunction={() => setEditing(true)}
                                     />
-                                    <IconNav className='whiteStyle' icon={deleteIcon} text='Borrar'
+                                    <IconNav
+                                        className="whiteStyle"
+                                        icon={deleteIcon}
+                                        text="Borrar"
                                     // clickFunction={() => setEditing(true)}
                                     />
                                 </div>
                             </Col>
                         ))
-                    )
-                    : (
+                    ) : (
                         <>
                             {isEmpty && (
                                 <Col xs={5} md={2} margin={0}>
                                     <Link to="/newAppt">
-                                        <NavButton textButton='Pide tu cita' />
+                                        <NavButton textButton="Pide tu cita" />
                                     </Link>
                                 </Col>
                             )}
                         </>
                     )}
-                {role === 2
-                    && (
-                        <Col xs={10} md={6} className="card-appt">
-                            <IconNav link='/allAppointments' className="whiteStyle" icon={allAppt} text="Todas" />
+                    {role === 2 && (
+                        <Col xs={10} md={10} className="card-appt">
+                            <IconNav
+                                link="/allAppointments"
+                                className="whiteStyle"
+                                icon={allAppt}
+                                text="Todas"
+                            />
                         </Col>
-
                     )}
+                    <Col xs={10} md={10} margin={0}>
+                        <Link to="/newAppt">
+                            <NavButton textButton="Pide cita" />
+                        </Link>
+                    </Col>
+                </>
             </Row>
-        </Container >
+        </Container>
+
     )
 }
