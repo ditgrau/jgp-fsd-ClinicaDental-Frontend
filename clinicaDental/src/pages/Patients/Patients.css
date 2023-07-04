@@ -8,15 +8,5 @@
     align-items: center;
 } 
 
-.users-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-.name-user {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-}
+

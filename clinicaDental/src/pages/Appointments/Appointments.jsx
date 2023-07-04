@@ -112,7 +112,7 @@ export function Appointments() {
                         </>
                     )}
                     {role === 2 && (
-                        <Col xs={10} md={10} className="card-appt">
+                        <Col xs={10} md={6} className="card-appt">
                             <IconNav
                                 link="/allAppointments"
                                 className="whiteStyle"

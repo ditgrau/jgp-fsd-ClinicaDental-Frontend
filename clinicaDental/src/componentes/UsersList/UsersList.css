@@ -1,0 +1,25 @@
+.letter-user {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #618ac1;
+    color: white;
+    font-size: 1.2rem;
+    justify-content: center;
+    display:flex;
+    align-items: center;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name-user-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+}

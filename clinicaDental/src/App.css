@@ -13,7 +13,7 @@
 }
 
 .main-card {  
-    padding: 1rem;
+    padding: .5rem;
     box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.075);
     border: solid 1px rgb(232, 232, 232);
     border-radius: .7rem;
@@ -22,5 +22,5 @@
 .title-main {
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }

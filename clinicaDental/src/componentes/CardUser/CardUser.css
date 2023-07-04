@@ -6,18 +6,6 @@
     padding: .8rem;
 }
 
-.letter-user {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: #618ac1;
-    color: white;
-    font-size: 1.2rem;
-    justify-content: center;
-    display:flex;
-    align-items: center;
-}
-
 .title-user{
     font-size: 1.5rem;
     font-weight: 400;
