@@ -36,11 +36,12 @@ export function Profile() {
     }
 
     const editHandler = (body, token) => {
+        console.log (body)
         if (role === 2) {
             updateDentistProfile(body, token)
                 .then(updateProfile(body, token)
                     .then(res => setEditing(false)))
-        } else if (role === 3) {
+        } else if (role === 3 || role === 1) {
             updateProfile(body, token)
                 .then(res => setEditing(false))
         }
@@ -112,7 +113,7 @@ export function Profile() {
                                 : <></>
                         }
                     </section>
-                    <div className="profile-footer">
+                    <div className="profile-footer more-margin">
                         {editing
                             ? (<IconNav className='whiteStyle' icon={checkIcon} text='Guardar' clickFunction={() => editHandler(body, token)} />)
                             : (<IconNav className='whiteStyle' icon={editIcon} text='Editar' clickFunction={() => setEditing(true)} />)

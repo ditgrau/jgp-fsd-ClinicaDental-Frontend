@@ -1,20 +1,8 @@
+
 .profile-card {
+    display: inline-flex;
+    flex-direction: column;
     justify-content: center;
-    display: inline-flex;
-    flex-direction: column;
-}
-
-.id-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-    margin-bottom: .5rem;
-}
-
-.profile-card {
-    display: inline-flex;
-    flex-direction: column;
     text-align: left;
     overflow-x: auto;
     gap: .5rem;
@@ -36,6 +24,14 @@
 .id-number {
     font-size: 0.8rem;
     margin-top: .2rem;
+}
+
+.id-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
 }
 
 .title-profile {
@@ -63,5 +59,9 @@
     display: flex;
     flex-direction: row;
     justify-content: end;
-    padding-right: 2rem;
+    padding-right: 1.5rem;
+}
+
+.more-margin {
+    margin-bottom: 1.5rem;
 }
