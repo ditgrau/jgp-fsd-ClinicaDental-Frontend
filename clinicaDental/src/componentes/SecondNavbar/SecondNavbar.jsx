@@ -8,7 +8,8 @@ import dentistsIcon from '../../assets/users.svg'
 import specialtiesIcon from '../../assets/file-certificate.svg'
 import tretamentsIcon from '../../assets/heart-handshake.svg'
 import { IconsDentist } from "../IconsDentist/IconsDentist";
-import usersIcon from '../../assets/users-group.svg'
+import { IconsAdmin } from "../IconsAdmin/IconsAdmin";
+
 
 
 export function SecondNavbar() {
@@ -21,9 +22,7 @@ export function SecondNavbar() {
                 <IconNav link='/specialties' className='darkStyle' icon={specialtiesIcon} text='Especialidades' />
                 <IconNav link='/treatments' className='darkStyle' icon={tretamentsIcon} text='Tratamientos' />
                 {role === 1 &&
-                    <>
-                        <IconNav link='/users' className='darkStyle' icon={usersIcon} text='Usuarios' />
-                    </>
+                    <IconsAdmin />
                 }
                 {role === 2 &&
                     <IconsDentist />
