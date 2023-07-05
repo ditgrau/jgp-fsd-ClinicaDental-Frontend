@@ -47,6 +47,7 @@ export function Appointments() {
                     break;
             }
         }
+        setDeleted(false);
     }, [token, deleted]);
 
     useEffect(() => {
