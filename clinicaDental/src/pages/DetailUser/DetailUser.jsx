@@ -15,10 +15,7 @@ export function DetailUser() {
     let detail = useSelector(detailUserData);
     let idUser = detail.id.id;
     let [user, setUser] = useState({});
-    
-    console.log(detail)
-    console.log(idUser)
-    console.log(user)
+
     useEffect(() => {
         if (!token || role === 3) {
             navigate('/')
@@ -29,8 +26,6 @@ export function DetailUser() {
         getById(idUser, token).then((res) => 
         setUser(res))
     }, []);
-
-    console.log(user)
 
     return (
         <Container>

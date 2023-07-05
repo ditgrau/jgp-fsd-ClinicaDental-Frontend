@@ -29,6 +29,9 @@ export function Appointments() {
             return navigate('/')
         } else {
             switch (role) {
+                case 1:
+                    navigate('/users')
+                    break;
                 case 3:
                     getMyAppt(token).then(res => {
                         setMyAppointments(res)
@@ -36,12 +39,11 @@ export function Appointments() {
                     })
                     break;
                 case 2:
-                case 1:
                     getMyApptDentist(token).then(res => {
                         setMyAppointments(res)
                         setHasData(true)
                     });
-                    break;
+                    break;                 
             }
         }
     }, [token]);

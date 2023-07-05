@@ -87,7 +87,7 @@ return (
                     list="time_list"
                     onBlur={(e) => inputHandler(e)}
                 />
-                <IconNav className='whiteStyle' icon={checkIcon} text='Aceptar' clickFunction={checkHandler} />
+                <IconNav link='/appointments' className='whiteStyle' icon={checkIcon} text='Aceptar' clickFunction={checkHandler} />
             </Col>
         </Row>
     </Container>

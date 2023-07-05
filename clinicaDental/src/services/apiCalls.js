@@ -29,13 +29,13 @@ export const getMyProfile = async (token) => {
 
 export const updateProfile = async (body, token) => {
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`
         }
     }
     let res = await axios.put(`${ENDPOINT}/user/updateProfile`, body, config)
-    console.log (body)
+    console.log(body)
     return res
 }
 
@@ -65,25 +65,25 @@ export const getUsers = async (token) => {
 export const getByName = async (nameUser, token) => {
 
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`,
         }
     }
     let res = await axios.get(`${ENDPOINT}/user/getByName/${nameUser}`, config)
-return res.data
+    return res.data
 }
 
 export const getById = async (idUser, token) => {
 
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`,
         }
     }
     let res = await axios.get(`${ENDPOINT}/user/getById/${idUser}`, config)
-return res.data.getById
+    return res.data.getById
 }
 
 
@@ -91,12 +91,12 @@ return res.data.getById
 
 export const updateDentistProfile = async (body, token) => {
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`
         }
     }
-    console.log (body)
+    console.log(body)
     let res = await axios.put(`${ENDPOINT}/dentist/updateDentistProfile`, body, config)
     return res
 }
@@ -121,7 +121,7 @@ export const getMyAppt = async (token) => {
 
 export const getMyApptDentist = async (token) => {
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`,
         }
@@ -132,7 +132,7 @@ export const getMyApptDentist = async (token) => {
 
 export const getAllAppt = async (token) => {
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`,
         }
@@ -143,13 +143,23 @@ export const getAllAppt = async (token) => {
 
 export const newAppt = async (body, token) => {
     let config = {
-        headers: 
+        headers:
         {
             Authorization: `Bearer ${token}`,
         }
     }
     let res = await axios.post(`${ENDPOINT}/appoint/new`, body, config)
     return res.data
+}
+
+export const deleteAppointment = async (idAppt) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    return await axios.delete(`${ENDPOINT}/appoint/delete/${idAppt}`, config)
 }
 
 //////////////////// TREATMENTS ////////////////////
