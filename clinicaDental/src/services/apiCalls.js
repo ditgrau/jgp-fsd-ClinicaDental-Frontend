@@ -83,7 +83,7 @@ export const getById = async (idUser, token) => {
         }
     }
     let res = await axios.get(`${ENDPOINT}/user/getById/${idUser}`, config)
-return res.data
+return res.data.getById
 }
 
 

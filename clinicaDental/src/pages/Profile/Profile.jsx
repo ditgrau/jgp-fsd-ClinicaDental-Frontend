@@ -65,7 +65,7 @@ export function Profile() {
                         <span className="title-profile"> {user.name} {user.surname}</span>
                         <span className="subtitle-profile">MI PERFIL</span>
                     </section>
-                    <section className="profile-card ">
+                    <section className="profile-card">
                         <div>
                             <span className="title-card">Nombre</span>
                             {editing

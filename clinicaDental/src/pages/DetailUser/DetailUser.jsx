@@ -5,6 +5,7 @@ import { detailUserData } from "../../Redux/detailUserSlice";
 import { Container, Row } from "react-bootstrap";
 import { getById } from '../../services/apiCalls';
 import { useNavigate } from "react-router-dom";
+import { CardUSer } from "../../componentes/CardUser/CardUser";
 
 
 export function DetailUser() {
@@ -14,7 +15,7 @@ export function DetailUser() {
     let detail = useSelector(detailUserData);
     let idUser = detail.id.id;
     let [user, setUser] = useState({});
-
+    
     console.log(detail)
     console.log(idUser)
     console.log(user)
@@ -25,16 +26,16 @@ export function DetailUser() {
     }, [])
 
     useEffect(() => {
-        getById(idUser, token).then((res) => setUser(res));
+        getById(idUser, token).then((res) => 
+        setUser(res))
     }, []);
 
     console.log(user)
 
     return (
         <Container>
-            <Row>
-                <span>{user.id}</span>
-
+            <Row className="main-row">
+                <CardUSer nameDet={user.name} surnameDet={user.surname} dniDet={user.dni} emailDet={user.email} roleDet={user.role} stateDet={user.state} />
             </Row>
         </Container>
     )
