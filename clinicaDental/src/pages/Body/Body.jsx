@@ -12,6 +12,7 @@ import { Profile } from '../Profile/Profile'
 import { Patients } from "../Patients/Patients";
 import { AllAppointments } from "../AllAppointments/AllAppointments";
 import { NewAppt } from "../NewAppt/NewAppt";
+import { DetailUser } from "../DetailUser/DetailUser"
 import './Body.css'
 
 export function Body() {
@@ -31,6 +32,7 @@ export function Body() {
             <Route path='/users' element={<Users />} />
             <Route path='/patients' element={<Patients />} />
             <Route path='/newAppt' element={<NewAppt />} />
+            <Route path='/detail' element={<DetailUser />} />
         </Routes>
     )
 }

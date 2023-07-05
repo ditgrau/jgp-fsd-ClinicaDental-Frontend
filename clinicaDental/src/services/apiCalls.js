@@ -62,6 +62,31 @@ export const getUsers = async (token) => {
 }
 
 
+export const getByName = async (nameUser, token) => {
+
+    let config = {
+        headers: 
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/user/getByName/${nameUser}`, config)
+return res.data
+}
+
+export const getById = async (idUser, token) => {
+
+    let config = {
+        headers: 
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/user/getById/${idUser}`, config)
+return res.data
+}
+
+
 //////////////////// DENTIST ////////////////////
 
 export const updateDentistProfile = async (body, token) => {
