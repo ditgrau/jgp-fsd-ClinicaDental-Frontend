@@ -4,13 +4,16 @@ import { IconNav } from '../../componentes/IconNav/IconNav'
 import { Container, Row, Col } from "react-bootstrap";
 import { getAllDentist, getAllTreatments, newAppt } from '../../services/apiCalls';
 import checkIcon from '../../assets/check.svg'
+import { useNavigate } from "react-router-dom";
 
 export function NewAppt() {
     const { token } = useAuth();
-
     const [apptSel, setApptSel] = useState({});
     const [optDentist, setOptDentist] = useState([]);
     const [optTreat, setOptTreat] = useState([]);
+    const [error, setError] = useState('')
+
+    let navigate = useNavigate()
 
     useEffect(() => {
         getAllDentist().then(res =>
@@ -24,8 +27,6 @@ export function NewAppt() {
             dentistId: e.target.value,
         }))
     };
-    console.log(apptSel);
-
 
     useEffect(() => {
         getAllTreatments().then(res =>
@@ -33,7 +34,6 @@ export function NewAppt() {
             .catch(error => console.log(error))
     }, [])
 
-    console.log(optTreat)
     const handleTreat = (e) => {
         setApptSel((prevState) => ({
             ...prevState,
@@ -50,10 +50,20 @@ export function NewAppt() {
     };
 
     const checkHandler = () => {
+        console.log('stoy')
         newAppt(apptSel, token)
-            .then(res => console.log(res))
-            .catch(error => console.log(error));
+            .then(res => {
+                if (res.success === true) {
+                    navigate('/appointments')
+                } else {
+                    setError(res.message)
+                }
+            })
+            .catch(error => setError(error.message));
+        console.log('aqui')
 }
+
+console.log(error);
 
 return (
     <Container>
@@ -87,8 +97,11 @@ return (
                     list="time_list"
                     onBlur={(e) => inputHandler(e)}
                 />
-                <IconNav link='/appointments' className='whiteStyle' icon={checkIcon} text='Aceptar' clickFunction={checkHandler} />
+                <IconNav className='whiteStyle' icon={checkIcon} text='Aceptar' clickFunction={checkHandler} />
             </Col>
+            
+                <span className="errorText ">{error}</span>
+            
         </Row>
     </Container>
 );

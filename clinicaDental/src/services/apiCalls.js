@@ -152,14 +152,14 @@ export const newAppt = async (body, token) => {
     return res.data
 }
 
-export const deleteAppointment = async (idAppt) => {
+export const deleteAppointment = async (id, token) => {
     let config = {
         headers:
         {
             Authorization: `Bearer ${token}`,
         }
     }
-    return await axios.delete(`${ENDPOINT}/appoint/delete/${idAppt}`, config)
+    return await axios.delete(`${ENDPOINT}/appoint/delete/${id}`, config)
 }
 
 //////////////////// TREATMENTS ////////////////////

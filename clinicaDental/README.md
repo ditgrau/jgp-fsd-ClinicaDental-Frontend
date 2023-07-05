@@ -12,4 +12,4 @@
 - Vista en detalle de paciente (dentista)
 - Vista en lista de todos los usuarios (admin)
 - Vista detalle de todos los usuarios (admin)
-
+- Eliminar citas (dentista, )

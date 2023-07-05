@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getMyAppt, getMyApptDentist } from '../../services/apiCalls';
+import { getMyAppt, getMyApptDentist, deleteAppointment } from '../../services/apiCalls';
 import { useAuth } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavButton } from "../../componentes/NavButton/NavButton";
@@ -20,6 +20,7 @@ export function Appointments() {
     const [title, setTitle] = useState('PRÓXIMAS CITAS')
     const [hasData, setHasData] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
+    const [deleted, setDeleted] = useState(false)
     const { role, token } = useAuth();
     const navigate = useNavigate()
 
@@ -43,10 +44,10 @@ export function Appointments() {
                         setMyAppointments(res)
                         setHasData(true)
                     });
-                    break;                 
+                    break;
             }
         }
-    }, [token]);
+    }, [token, deleted]);
 
     useEffect(() => {
         hasData
@@ -55,6 +56,11 @@ export function Appointments() {
             : setTitle("PRÓXIMAS CITAS");
     }, [hasData, myAppointments]);
 
+    const deleteHandler = (id, token) => {
+
+        deleteAppointment(id, token)
+        .then(res => setDeleted(true))
+    }
 
     return (
         <Container>
@@ -97,7 +103,7 @@ export function Appointments() {
                                         className="whiteStyle"
                                         icon={deleteIcon}
                                         text="Borrar"
-                                    // clickFunction={() => setEditing(true)}
+                                        clickFunction={() => deleteHandler(appt.id, token)}
                                     />
                                 </div>
                             </Col>
