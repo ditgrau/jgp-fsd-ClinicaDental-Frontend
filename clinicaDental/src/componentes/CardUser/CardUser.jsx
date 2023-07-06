@@ -7,7 +7,7 @@ import { IconNav } from "../IconNav/IconNav";
 import editIcon from '../../assets/writing.svg'
 import userIcon from '../../assets/user-circle.svg'
 
-export function CardUSer({ nameDet, surnameDet, dniDet, emailDet, roleDet, stateDet }) {
+export function CardUSer({ nameDet, surnameDet, dniDet, emailDet, roleDet}) {
     const { role } = useAuth();
     // let letra = {nameDet}[0].toUpperCase()
     return (

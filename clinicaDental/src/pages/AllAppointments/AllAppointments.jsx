@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import { IconNav } from '../../componentes/IconNav/IconNav'
-import { ApptCardUser } from "../../componentes/ApptCardUser/ApptCardUser";
 import { ApptCardDentist } from "../../componentes/ApptCardDentist/ApptCardDentist";
 
 import goBack from '../../assets/arrow-back.svg'

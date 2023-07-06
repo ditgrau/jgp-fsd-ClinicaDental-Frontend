@@ -24,3 +24,19 @@
   font-weight: 600;
   margin-bottom: 1rem;
 }
+
+.main-column {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+/* .display-row {
+  display: flex;
+  flex-direction: row-reverse;
+} */
+
+.display-column {
+  display: flex;
+  flex-direction: column;
+}

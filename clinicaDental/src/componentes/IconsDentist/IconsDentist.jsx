@@ -11,7 +11,6 @@ export function IconsDentist() {
         <>
             <IconNav link='/patients' className='darkStyle' icon={usersIcon} text='Pacientes' />
             <IconNav link='/appointments' className='darkStyle' icon={calendarIcon} text='Mis citas' />
-            <IconNav link='/newAppt' className='darkStyle' icon={newCitaIcon} text='Crear cita' />
         </>
     )
 }

@@ -54,7 +54,7 @@ export function Signup() {
 
             })
             .catch(error => {
-                console.log(error.response.status);
+                console.log(error);
                 if (error.response.status === 400) {
                     setErrorClassName ('errorShown')
                 }

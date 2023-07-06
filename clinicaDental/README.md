@@ -6,6 +6,8 @@ __<p align="center">Proyecto 4 - Frontend React - Semana 10</p>__
   <ol>
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
     <li><a href="#stack">Stack</a></li>
+    <li><a href="#requisitos-minimos">Requisitos minimos</a></li>
+    <li><a href="#otras-funcionalidades">Otras funcionalidades</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
@@ -23,20 +25,25 @@ Este proyecto de frontend ha sido desarrollado utilizando React y Redux, y se in
 <img src= "https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
 
 
+### Requisitos minimos
+✅ Registro de usuarios
+✅ Login de usuarios
+✅ Perfil de usuario
+✅ Vista de citas que tengo como cliente (solo las propias)
+✅ Vista de todas las citas existentes (dentista)
+✅ Vista de todos los usuarios registrados en la plataforma (admin)
+✅ Creacion de citas
+✅ - Modificacion de citas
+✅ - Panel de busqueda
 
 
-- Login / logout
-- Registro 
-- Vista del propio perfil (todos los roles)
-- Modificacion de perfil con diferentes campos si eres dentista o paciente
-- 
+### Otras funcionalidades
+✅ Logout
+✅ Modificacion de perfil, diferentes segun si: dentista o paciente
+✅ Vista de mis citas (dentista)
+✅ Vista en lista de pacientes (dentista)/ usuarios (admin)
+✅ Vista en detalle de pacientes (dentista)/ usuarios (admin)
+✅ Eliminar citas 
 
+### Contacto
 
-- Vista de mis citas (dentista)
-- Vista de todas las citas (dentista)
-- Creacion de nueva cita (dentista)
-- Vista en lista de pacientes (dentista)
-- Vista en detalle de paciente (dentista)
-- Vista en lista de todos los usuarios (admin)
-- Vista detalle de todos los usuarios (admin)
-- Eliminar citas (dentista, )

@@ -11,7 +11,8 @@ export const loginUser = async (credentials) => {
 }
 
 export const signup = async (dataUser) => {
-    return await axios.post(`${ENDPOINT}/signup`, dataUser)
+    let res = await axios.post(`${ENDPOINT}/signup`, dataUser)
+    return res
 }
 
 //////////////////// USER ////////////////////
@@ -162,6 +163,15 @@ export const deleteAppointment = async (id, token) => {
     return await axios.delete(`${ENDPOINT}/appoint/delete/${id}`, config)
 }
 
+export const updateAppointment = async (id, body, token) => {
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    return await axios.delete(`${ENDPOINT}/appoint/delete/${id}`, body, config)
+}
 //////////////////// TREATMENTS ////////////////////
 
 export const getAllTreatments = async () => {
