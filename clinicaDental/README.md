@@ -7,6 +7,7 @@ __<p align="center">Proyecto 4 - Frontend React - Semana 10</p>__
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#funcionalidades">Funcionalidades</a></li>
+    <li><a href="#licencia">Licencia</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
@@ -40,5 +41,17 @@ Este proyecto de frontend ha sido desarrollado utilizando React y Redux, y se in
 ✅ Vista en detalle de pacientes (dentista)/ usuarios (admin)
 ✅ Eliminar citas 
 
-### Contacto
+### Licencia
+📝 La licencia utilizada es una MIT License. Este proyecto ha sido realizado por mí, Judit Grau Puigdollers, inéditamente para la tarea 'Backend Clínica Dental' en la edición de abril 2023 de GeeksHubs Academy.
 
+``` js
+ const developer = "ditGrau";
+ console.log("Desarrollado por: " + developer);
+```  
+
+<h3 align="center">Contacto</h3>
+
+<div align="center">
+ 📩 <a href = "mailto:juditgraup@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>👋🏼<a href="https://www.linkedin.com/in/linkedinUser/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+</p>
+</div>
