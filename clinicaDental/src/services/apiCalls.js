@@ -170,7 +170,7 @@ export const updateAppointment = async (id, body, token) => {
             Authorization: `Bearer ${token}`,
         }
     }
-    return await axios.delete(`${ENDPOINT}/appoint/delete/${id}`, body, config)
+    return await axios.put(`${ENDPOINT}/appoint/update/${id}`, body, config)
 }
 //////////////////// TREATMENTS ////////////////////
 

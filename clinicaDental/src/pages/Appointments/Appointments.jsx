@@ -21,6 +21,7 @@ export function Appointments() {
     const [myAppointments, setMyAppointments] = useState([]);
     const [title, setTitle] = useState('PRÓXIMAS CITAS');
     const [hasData, setHasData] = useState(false);
+    const [body, setBody] = useState({});
     const [isEmpty, setIsEmpty] = useState(false);
     const [editing, setEditing] = useState(false);
     const [deleted, setDeleted] = useState(false);
@@ -53,36 +54,12 @@ export function Appointments() {
         setDeleted(false);
     }, [token, deleted]);
 
-
-    // const inputHandler = (e) => {
-    //     setBody((prevState) => ({
-    //         ...prevState,
-    //         [e.target.name]: e.target.value,
-    //     }))
-    // }
-
-    const editHandler = (id, body, token) => {
-        console.log(id);
-        updateAppointment(id, body, token)
-            .then(res => setEditing(false))
-    }
-
     const deleteHandler = (id, token) => {
         console.log(id);
         deleteAppointment(id, token)
             .then(res => setDeleted(true))
     }
 
-    // console.log(editing)
-
-    // useEffect(() => {
-    //     updateAppointment(id, body, token)
-    //         .then((res) => {
-    //             ;
-    //         }), [editing]
-    // })
-
-console.log(editing)
     useEffect(() => {
         hasData
             ? (setTitle(myAppointments.length === 0 ? "NO HAY CITAS" : "PRÓXIMAS CITAS"),
@@ -97,23 +74,17 @@ console.log(editing)
                     <span className="title-main">{title}</span>
                     {myAppointments.length > 0 && myAppointments.map((appt) => (
                         <Col key={appt.id} xs={10} md={6} className="main-card">
-                            
-                                {role === 3 && (
-                                    <>
+
+                            {role === 3 && (
+                                <>
                                     <div className="card-appt">
                                         <section>
                                             <div className="info-date">
-                                                {editing 
-                                                    ? (<input className="main-input" type="date" name="date" onChange={(e) => inputHandler(e)}></input>)
-                                                    : (<span>{appt.date}</span>)
-                                                }
+                                                <span>{appt.date}</span>
                                                 < img src={calendarIcon} alt='calendar'></img>
                                             </div>
                                             <div className="info-date">
-                                                {editing
-                                                    ? (<input className="main-input" type="time" name="hour" onChange={(e) => inputHandler(e)}></input>)
-                                                    : (<span>{appt.hour}</span>)
-                                                }
+                                                <span>{appt.hour}</span>
                                                 <img src={clockIcon} alt='clock'></img>
                                             </div>
                                         </section>
@@ -135,18 +106,14 @@ console.log(editing)
                                                 <span className="info-user">{appt.Dentist.User.name} {appt.Dentist.User.surname}</span>
                                             </div>
                                         </section>
-                                        </div>
-                                        <div className="appt-footer">
-                                            {editing
-                                                ? (<IconNav className='whiteStyle' icon={checkIcon} text='Guardar' clickFunction={() => editHandler(appt.id, body, token)} />)
-                                                : (<IconNav className='whiteStyle' icon={editIcon} text='Editar' clickFunction={() => setEditing(true)} />)
-                                            }
-                                            <IconNav className="whiteStyle" icon={deleteIcon} text="Borrar" clickFunction={() => deleteHandler(appt.id, token)}/>
-                                        </div>
-                                    </>
-                                )}
-                                {role === 2 && (
-                                    <div className="card-appt">
+                                    </div>
+                                    <div className="appt-footer">
+                                        <IconNav className="whiteStyle" icon={deleteIcon} text="Borrar" clickFunction={() => deleteHandler(appt.id, token)} />
+                                    </div>
+                                </>
+                            )}
+                            {role === 2 && (
+                                <div className="card-appt">
                                     <ApptCardDentist
                                         date={appt.date}
                                         hour={appt.hour}
@@ -154,9 +121,9 @@ console.log(editing)
                                         name={appt.User.name}
                                         surname={appt.User.surname}
                                     />
-                                    </div>
-                                )}
-                            
+                                </div>
+                            )}
+
                         </Col>
                     ))}
                     {role === 2 && (
