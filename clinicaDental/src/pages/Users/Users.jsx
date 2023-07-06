@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUsers, getByName } from '../../services/apiCalls';
+import { getUsers, getByRole } from '../../services/apiCalls';
 import { useAuth } from "../../services/dataFromSlice";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,8 @@ import '../Patients/Patients.css'
 
 export function Users() {
     const [users, setUsers] = useState([]);
-    const [nameUser, setNameUser] = useState('');
+    const [roleUser, setRoleUser] = useState('');
+    const [error, setError] = useState('');
     const [letra, setLetra] = useState('');
     const { role, token } = useAuth();
     let navigate = useNavigate()
@@ -20,10 +21,16 @@ export function Users() {
     }, [])
 
     useEffect(() => {
-        nameUser !== ''
-            ? getByName(nameUser, token).then((res) => {
-                setUsers(res);
-                console.log('estoy')
+        roleUser !== ''
+            ? getByRole(roleUser, token).then((res) => {
+                if (res !== undefined) {
+                    setUsers(res);
+                } else {
+                    setError('Roles: 1-admin, 2-dentista, 3-usuario');
+                    getUsers(token).then((res) => {
+                        setUsers(res);
+                    })
+                }
             })
             : getUsers(token).then((res) => {
                 setUsers(res);
@@ -31,11 +38,10 @@ export function Users() {
                     setLetra((prevImage) => [...prevImage, (obj.name)[0].toUpperCase()])
                 );
             });
-    }, [nameUser]);
-
+    }, [roleUser]);
 
     const inputHandler = (e) => {
-        setNameUser(e.target.value);
+        setRoleUser(e.target.value);
     };
 
     return (
@@ -44,12 +50,12 @@ export function Users() {
                 <input
                     type='text'
                     className='main-input'
-                    placeholder='busqueda por nombre'
-                    // name={'name'}
-                    // value='nameUser'
+                    placeholder='busqueda por rol'
+                    value={roleUser}
                     onChange={(e) => inputHandler(e)}
                 />
             </form>
+            <div>{error}</div>
             <UsersList title={'USUARIOS'} array={users} letra={letra} />
         </Container>
     )

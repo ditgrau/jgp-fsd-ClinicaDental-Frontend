@@ -9,21 +9,16 @@ import allAppt from '../../assets/arrow-bar-down.svg';
 import { ApptCardDentist } from "../../componentes/ApptCardDentist/ApptCardDentist";
 import calendarIcon from '../../assets/calendar.svg';
 import clockIcon from '../../assets/clock.svg';
-import editIcon from '../../assets/writing.svg';
 import deleteIcon from '../../assets/trash.svg';
-import checkIcon from '../../assets/check.svg';
 
 import '../Appointments/Appointments.css';
-
 
 export function Appointments() {
 
     const [myAppointments, setMyAppointments] = useState([]);
     const [title, setTitle] = useState('PRÓXIMAS CITAS');
     const [hasData, setHasData] = useState(false);
-    const [body, setBody] = useState({});
     const [isEmpty, setIsEmpty] = useState(false);
-    const [editing, setEditing] = useState(false);
     const [deleted, setDeleted] = useState(false);
     const { role, token } = useAuth();
     const navigate = useNavigate();
@@ -55,7 +50,6 @@ export function Appointments() {
     }, [token, deleted]);
 
     const deleteHandler = (id, token) => {
-        console.log(id);
         deleteAppointment(id, token)
             .then(res => setDeleted(true))
     }

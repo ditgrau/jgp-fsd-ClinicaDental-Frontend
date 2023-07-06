@@ -63,7 +63,7 @@ export const getUsers = async (token) => {
 }
 
 
-export const getByName = async (nameUser, token) => {
+export const getByRole = async (roleUser, token) => {
 
     let config = {
         headers:
@@ -71,8 +71,8 @@ export const getByName = async (nameUser, token) => {
             Authorization: `Bearer ${token}`,
         }
     }
-    let res = await axios.get(`${ENDPOINT}/user/getByName/${nameUser}`, config)
-    return res.data
+    let res = await axios.get(`${ENDPOINT}/user/getByRole/${roleUser}`, config)
+    return res.data.usersByRole
 }
 
 export const getById = async (idUser, token) => {
