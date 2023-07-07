@@ -26,20 +26,20 @@ Este proyecto de frontend ha sido desarrollado utilizando React y Redux, y se in
 
 
 ### Funcionalidades
-✅ Registro de usuarios
-✅ Login de usuarios
-✅ Perfil de usuario
-✅ Vista de citas que tengo como cliente (solo las propias)
-✅ Vista de todas las citas existentes (dentista)
-✅ Vista de todos los usuarios registrados en la plataforma (admin)
-✅ Creacion de citas
-✅ Modificacion perfil
-✅ Panel de busqueda
-✅ Logout
-✅ Vista de mis citas (dentista)
-✅ Vista en lista de pacientes (dentista)/ usuarios (admin)
-✅ Vista en detalle de pacientes (dentista)/ usuarios (admin)
-✅ Eliminar citas 
+<li>✅ Registro de usuarios</li>
+<li>✅ Login de usuarios</li>
+<li>✅ Perfil de usuario</li>
+<li>✅ Vista de citas que tengo como cliente (solo las propias)</li>
+<li>✅ Vista de todas las citas existentes (dentista)</li>
+<li>✅ Vista de todos los usuarios registrados en la plataforma (admin)</li>
+<li>✅ Creacion de citas</li>
+<li>✅ Modificacion perfil</li>
+<li>✅ Panel de busqueda</li>
+<li>✅ Logout</li>
+<li>✅ Vista de mis citas (dentista)</li>
+<li>✅ Vista en lista de pacientes (dentista)/ usuarios (admin)</li>
+<li>✅ Vista en detalle de pacientes (dentista)/ usuarios (admin)</li>
+<li>✅ Eliminar citas </li>
 
 ### Licencia
 📝 La licencia utilizada es una MIT License. Este proyecto ha sido realizado por mí, Judit Grau Puigdollers, inéditamente para la tarea 'Backend Clínica Dental' en la edición de abril 2023 de GeeksHubs Academy.
