@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getMyAppt, getMyApptDentist, updateAppointment, deleteAppointment } from '../../services/apiCalls';
+import { getMyAppt, getMyApptDentist, deleteAppointment } from '../../services/apiCalls';
 import { useAuth } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavButton } from "../../componentes/NavButton/NavButton";
