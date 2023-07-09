@@ -6,7 +6,9 @@ __<p align="center">Proyecto 4 - Frontend React - Semana 10</p>__
   <ol>
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
     <li><a href="#stack">Stack</a></li>
+    <li><a href="#objetivospersonales">Objetivos personales</a></li>
     <li><a href="#funcionalidades">Funcionalidades</a></li>
+    <li><a href="#pequeñapresentaciondefuncionalidad">Pequeña presentación de funcionalidad</a></li>
     <li><a href="#licencia">Licencia</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
@@ -24,6 +26,15 @@ Este proyecto de frontend ha sido desarrollado utilizando React y Redux, y se in
 <img src= "https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white">
 <img src= "https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
 </div>
+
+### Objetivos personales
+En este proyecto he tomado la decisión de <strong>enfocarme principalmente en la funcionalidad y en la construcción sólida del conocimiento técnico. </strong>
+
+Como diseñadora, he optado por relegar temporalmente la prioridad del diseño y la estética, con el objetivo de sumergirme en el aprendizaje profundo de los aspectos técnicos, especialmente en la comprensión de cómo se articulan y comunican las diferentes partes del sistema.
+
+Aun así ha sido importante para mí mantener el equilibrio entre la funcionalidad y la estética para garantizar una experiencia de usuario satisfactoria.
+
+<strong>En definitiva, con este proyecto he buscado enriquecer mi aprendizaje y desarrollo profesional, permitiéndome enfrentar futuros proyectos con una base sólida en términos de conocimientos técnicos y habilidades de diseño.</strong>
 
 ### Funcionalidades
 <ol>
