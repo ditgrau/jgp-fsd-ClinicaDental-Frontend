@@ -5,10 +5,13 @@ import { useAuth } from "../../services/dataFromSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavButton } from "../../componentes/NavButton/NavButton";
 import { IconNav } from "../../componentes/IconNav/IconNav";
-import allAppt from '../../assets/arrow-bar-down.svg';
+import { useDispatch } from "react-redux";
+import { saveAppt } from "../../Redux/detailApptSlice"
 import { ApptCardDentist } from "../../componentes/ApptCardDentist/ApptCardDentist";
 import calendarIcon from '../../assets/calendar.svg';
 import clockIcon from '../../assets/clock.svg';
+import allAppt from '../../assets/arrow-bar-down.svg';
+import editIcon from '../../assets/writing.svg'
 import deleteIcon from '../../assets/trash.svg';
 
 import '../Appointments/Appointments.css';
@@ -21,6 +24,7 @@ export function Appointments() {
     const [isEmpty, setIsEmpty] = useState(false);
     const [deleted, setDeleted] = useState(false);
     const { role, token } = useAuth();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
 
@@ -49,6 +53,11 @@ export function Appointments() {
         setDeleted(false);
     }, [token, deleted]);
 
+    const clickHandler = (apptId) => {
+        dispatch(saveAppt({ id: apptId }))
+        navigate('/detailappt');
+    }
+
     const deleteHandler = (id, token) => {
         deleteAppointment(id, token)
             .then(res => setDeleted(true))
@@ -71,38 +80,35 @@ export function Appointments() {
 
                             {role === 3 && (
                                 <>
-                                    <div className="card-appt">
-                                        <section>
-                                            <div className="info-date">
-                                                <span>{appt.date}</span>
-                                                < img src={calendarIcon} alt='calendar'></img>
-                                            </div>
-                                            <div className="info-date">
-                                                <span>{appt.hour}</span>
-                                                <img src={clockIcon} alt='clock'></img>
-                                            </div>
-                                        </section>
-                                        <section className="appt-body">
-                                            <div>
-                                                <span className="title-card">Tratamiento</span>
-                                                <span className="info-user">{appt.Treatment.name}</span>
-                                            </div>
-                                            <div>
-                                                <span className="title-card">Tiempo estimado</span>
-                                                <span className="info-user">{appt.Treatment.time} minutos</span>
-                                            </div>
-                                            <div>
-                                                <span className="title-card">Precio</span>
-                                                <span className="info-user">{appt.Treatment.price}€</span>
-                                            </div>
-                                            <div>
-                                                <span className="title-card">Dentista</span>
-                                                <span className="info-user">{appt.Dentist.User.name} {appt.Dentist.User.surname}</span>
-                                            </div>
-                                        </section>
-                                    </div>
+                                    <section className="appt-body">
+                                        <div>
+                                            <span className="title-card">Tratamiento</span>
+                                            <span className="info-user">{appt.Treatment.name}</span>
+                                        </div>
+                                        <div>
+                                            <span className="title-card">Tiempo estimado</span>
+                                            <span className="info-user">{appt.Treatment.time} minutos</span>
+                                        </div>
+                                        <div>
+                                            <span className="title-card">Precio</span>
+                                            <span className="info-user">{appt.Treatment.price}€</span>
+                                        </div>
+                                        <div>
+                                            <span className="title-card">Dentista</span>
+                                            <span className="info-user">{appt.Dentist.User.name} {appt.Dentist.User.surname}</span>
+                                        </div>
+                                        <div className="info-date">
+                                            < img src={calendarIcon} alt='calendar'></img>
+                                            <span>{appt.date}</span>
+                                        </div>
+                                        <div className="info-date">
+                                            <img src={clockIcon} alt='clock'></img>
+                                            <span>{appt.hour}</span>
+                                        </div>
+                                    </section>
                                     <div className="appt-footer">
-                                        <IconNav className="whiteStyle" icon={deleteIcon} text="Borrar" clickFunction={() => deleteHandler(appt.id, token)} />
+                                    <IconNav link= "/detailappt" className='whiteStyle' icon={editIcon} text='Editar'clickFunction={() => clickHandler(appt.id)}/>
+                                    <IconNav className="whiteStyle" icon={deleteIcon} text="Borrar" clickFunction={() => deleteHandler(appt.id, token)} />
                                     </div>
                                 </>
                             )}
