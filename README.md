@@ -44,7 +44,7 @@ Este proyecto de frontend ha sido desarrollado utilizando React y Redux, y se in
 </ol>
 
 ### Pequeña presentación de funcionalidad
-<img src="./public/img/video-readme.gif"/>
+<div align="center"><img src="./public/img/video-readme.gif"/></div>
 
 
 ### Instalación en local
