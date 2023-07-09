@@ -66,6 +66,13 @@ Pasos para la instalación:
 2. ` $ npm install `
 3. ` $ npm run dev `
 
+* claves para ejectuar: 
+1. Admin: 
+`rocio@email.com` -> 1234-rocio
+2. Dentista:
+`espe@email.com` -> 1234-espe
+3. User:
+`paula@email.com` -> 1234-paula
 
 ### Licencia
 📝 La licencia utilizada es una MIT License. Este proyecto ha sido realizado por mí, Judit Grau Puigdollers, inéditamente para la tarea 'Backend Clínica Dental' en la edición de abril 2023 de GeeksHubs Academy.
