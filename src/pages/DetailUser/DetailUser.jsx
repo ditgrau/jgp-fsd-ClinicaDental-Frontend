@@ -11,10 +11,10 @@ import { CardUSer } from "../../componentes/CardUser/CardUser";
 export function DetailUser() {
 
     const { role, token } = useAuth();
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     let detail = useSelector(detailUserData);
     let idUser = detail.id.id;
-    let [user, setUser] = useState({});
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         if (!token || role === 3) {
