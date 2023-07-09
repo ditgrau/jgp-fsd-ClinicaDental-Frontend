@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import { useAuth } from "../../services/dataFromSlice";
 import { detailApptData } from "../../Redux/detailApptSlice";
 import { Container, Col, Row } from "react-bootstrap";
-import { getApptById, updateAppointment} from '../../services/apiCalls';
+import { getApptById, updateAppointment } from '../../services/apiCalls';
 import { useNavigate } from "react-router-dom";
 import { IconNav } from '../../componentes/IconNav/IconNav'
 import calendarIcon from '../../assets/calendar.svg';
 import clockIcon from '../../assets/clock.svg';
-import checkIcon from '../../assets/check.svg'
+import checkIcon from '../../assets/check.svg';
+import goBack from '../../assets/arrow-back.svg'
 
 
 export function DetailAppt() {
@@ -17,10 +18,11 @@ export function DetailAppt() {
     const [appt, setAppt] = useState({});
     const [data, setHasData] = useState(false);
     const [body, setBody] = useState({});
+    const [update, setUpdate] = useState(false);
     const navigate = useNavigate()
     const detail = useSelector(detailApptData);
     let idAppt = detail.id.id
-    
+
     const currentDate = new Date().toISOString().split("T")[0];
 
     useEffect(() => {
@@ -34,8 +36,7 @@ export function DetailAppt() {
             setAppt(res)
             setHasData(true)
         })
-    }, []);
-    console.log(body)
+    }, [update]);
 
     const inputHandler = (e) => {
         setBody((prevState) => ({
@@ -44,11 +45,14 @@ export function DetailAppt() {
         }))
     }
 
-    const editHandler = ( id, body, token) => {
-            updateAppointment(id, body, token)
-                    .then(res => console.log(res))
-    }
+    const editHandler = (id, body, token) => {
+        updateAppointment(id, body, token)
+            .then(res => {
+                setUpdate(true)
+            })
 
+    }
+    console.log(update)
     return (
         <Container>
             <Row className="main-row">
@@ -59,24 +63,42 @@ export function DetailAppt() {
                                 <span className="title-card">Cita: {appt.date} / {appt.hour}</span>
                             )
                         }
-                        <div className="info-date">
-                            < img src={calendarIcon} alt='calendar'></img>
-                            <input className="main-input"
-                                type="date"
-                                name="date"
-                                min={currentDate}
-                                onChange={(e) => inputHandler(e)}
-                            />
-                        </div>
-                        <div className="info-date">
-                            <img src={clockIcon} alt='clock'></img>
-                            <input className="main-input"
-                                type="time"
-                                name="hour"
-                                list="time_list"
-                                onBlur={(e) => inputHandler(e)}
-                            />
-                        </div>
+                        {
+                            update ? (
+                                <>
+                                    <div className="info-date">
+                                        < img src={calendarIcon} alt='calendar'></img>
+                                        <span>{appt.date}</span>
+                                    </div>
+                                    <div className="info-date">
+                                        <img src={clockIcon} alt='clock'></img>
+                                        <span>{appt.hour}</span>
+                                    </div>
+                                </>
+                            )
+                                : (
+                                    <>
+                                        <div className="info-date">
+                                            < img src={calendarIcon} alt='calendar'></img>
+                                            <input className="main-input"
+                                                type="date"
+                                                name="date"
+                                                min={currentDate}
+                                                onChange={(e) => inputHandler(e)}
+                                            />
+                                        </div>
+                                        <div className="info-date">
+                                            <img src={clockIcon} alt='clock'></img>
+                                            <input className="main-input"
+                                                type="time"
+                                                name="hour"
+                                                list="time_list"
+                                                onBlur={(e) => inputHandler(e)}
+                                            />
+                                        </div>
+                                    </>
+                                )
+                        }
 
                         {data && (
                             <>
@@ -95,8 +117,16 @@ export function DetailAppt() {
                             </>
                         )}
                     </section>
-                    <section>
-                        <IconNav className='whiteStyle' icon={checkIcon} text='Guardar' clickFunction={() => editHandler(appt.id , body, token)} />
+                    <section className="appt-footer">
+                        {
+                            update
+                                ? (
+                                    <IconNav link='/appointments' className="whiteStyle" icon={goBack} text="Atrás" />
+                                )
+                                : (
+                                    <IconNav className='whiteStyle' icon={checkIcon} text='Guardar' clickFunction={() => editHandler(appt.id, body, token)} />
+                                )
+                        }
                     </section>
                 </Col>
             </Row>
