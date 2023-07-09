@@ -172,6 +172,19 @@ export const updateAppointment = async (id, body, token) => {
     }
     return await axios.put(`${ENDPOINT}/appoint/update/${id}`, body, config)
 }
+
+export const getApptById = async (idAppt, token) => {
+
+    let config = {
+        headers:
+        {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+    let res = await axios.get(`${ENDPOINT}/appoint/appointmentById/${idAppt}`, config)
+    return res.data.apptById
+}
+
 //////////////////// TREATMENTS ////////////////////
 
 export const getAllTreatments = async () => {

@@ -1,9 +1,9 @@
 import { IconNav } from '../../componentes/IconNav/IconNav'
-import detailIcon from '../../assets/search.svg'
 import { Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { saveId } from "../../Redux/detailUserSlice"
 import { useNavigate } from "react-router-dom";
+import detailIcon from '../../assets/search.svg'
 import './UsersList.css'
 
 export function UsersList({ title, array, letra }) {

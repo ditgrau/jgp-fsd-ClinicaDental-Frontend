@@ -1,22 +1,13 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import './CardUSer.css'
 import { useAuth } from "../../services/dataFromSlice";
-import { IconNav } from "../IconNav/IconNav";
-
-import editIcon from '../../assets/writing.svg'
-import userIcon from '../../assets/user-circle.svg'
+import './CardUSer.css'
 
 export function CardUSer({ nameDet, surnameDet, dniDet, emailDet, roleDet}) {
     const { role } = useAuth();
-    // let letra = {nameDet}[0].toUpperCase()
     return (
 
         <Col xs={10} md={3} className="main-card profile-card">
-            <section className="title-user">
-                {/* <div className='letter-user'><div>{letra}</div></div> */}
-                <span className="title-user"> {nameDet} {surnameDet}</span>
-            </section>
             <section className="profile-card">
                 <div>
                     <span className="title-card">Nombre</span>

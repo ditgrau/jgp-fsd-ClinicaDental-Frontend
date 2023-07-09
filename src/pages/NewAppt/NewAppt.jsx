@@ -12,6 +12,7 @@ export function NewAppt() {
     const [optDentist, setOptDentist] = useState([]);
     const [optTreat, setOptTreat] = useState([]);
     const [error, setError] = useState('')
+    const currentDate = new Date().toISOString().split("T")[0];
 
     let navigate = useNavigate()
 
@@ -61,49 +62,52 @@ export function NewAppt() {
             })
             .catch(error => setError(error.message));
         console.log('aqui')
-}
+    }
 
-console.log(error);
+    console.log(error);
 
-return (
-    <Container>
-        <Row className="main-row">
-        <div className='title-main'>Nueva cita</div>
-            <Col xs={10} md={4} className="main-card profile-card">
-                <select onChange={handleDentist} className="main-input">
-                    <option value="">Selecciona doctor</option>
-                    {optDentist.map((dent) => (
-                        <option key={dent.id} value={dent.id}>
-                            Dr. {dent.User.name} {dent.User.surname}
-                        </option>
-                    ))}
-                </select>
+    return (
+        <Container>
+            <Row className="main-row">
+                <div className='title-main'>Nueva cita</div>
+                <Col xs={10} md={4} className="main-card profile-card">
+                    <select onChange={handleDentist} className="main-input">
+                        <option value="">Selecciona doctor</option>
+                        {optDentist.map((dent) => (
+                            <option key={dent.id} value={dent.id}>
+                                Dr. {dent.User.name} {dent.User.surname}
+                            </option>
+                        ))}
+                    </select>
 
-                <select onChange={handleTreat} className="main-input">
-                    <option value="">Selecciona tratamiento</option>
-                    {optTreat.map((treat) => (
-                        <option key={treat.id} value={treat.id}>{treat.name}</option>
-                    ))}
-                </select>
+                    <select onChange={handleTreat} className="main-input">
+                        <option value="">Selecciona tratamiento</option>
+                        {optTreat.map((treat) => (
+                            <option key={treat.id} value={treat.id}>{treat.name}</option>
+                        ))}
+                    </select>
 
-                <input className="main-input"
-                    type="date"
-                    name="date"
-                    onChange={(e) => inputHandler(e)}
-                />
-                <input className="main-input"
-                    type="time"
-                    name="hour"
-                    list="time_list"
-                    onBlur={(e) => inputHandler(e)}
-                />
-                <IconNav className='whiteStyle' icon={checkIcon} text='Aceptar' clickFunction={checkHandler} />
-            </Col>
-            
+                    <input className="main-input"
+                        type="date"
+                        name="date"
+                        min={currentDate}
+                        onChange={(e) => inputHandler(e)}
+                    />
+                    <input className="main-input"
+                        type="time"
+                        name="hour"
+                        list="time_list"
+                        min="09:00"
+                        max="19:30"
+                        onBlur={(e) => inputHandler(e)}
+                    />
+                    <IconNav className='whiteStyle' icon={checkIcon} text='Aceptar' clickFunction={checkHandler} />
+                </Col>
+
                 <span className="errorText ">{error}</span>
-            
-        </Row>
-    </Container>
-);
+
+            </Row>
+        </Container>
+    );
 
 }
