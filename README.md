@@ -56,9 +56,6 @@ Aun así ha sido importante para mí mantener el equilibrio entre la funcionalid
 
 ### Pequeña presentación de funcionalidad
 <div align="center"><img src="./public/img/video-readme.gif"/></div>
-<div align="center">
-<img src="./public/img/Vídeo sin título ‐ Hecho con Clipchamp (1).gif"/>
-<img src="./public/img/Vídeo sin título ‐ Hecho con Clipchamp (2).gif"/></div>
 
 ### Instalación en local
 
