@@ -44,11 +44,8 @@ Este proyecto de frontend ha sido desarrollado utilizando React y Redux, y se in
 </ol>
 
 ### Pequeña presentación de funcionalidad
-<img src="./public/img/gifs readme (5).gif"/>
-<img src="./public/img/gifs readme (4).gif"/>
-<img src="./public/img/gifs readme (3).gif"/>
-<img src="./public/img/gifs readme (2).gif"/>
-<img src="./public/img/gifs readme (1).gif"/>
+<img src="./public/img/video-readme.gif"/>
+
 
 ### Instalación en local
 
